@@ -14,7 +14,14 @@
   <script>
     // Get your token from https://cesium.com/ion/tokens
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNWM5MTIwMS04M2I2LTQ0MDktYTdiYS1lOTU5OTVhN2QwYWQiLCJpZCI6OTk4OTAsImlhdCI6MTY1Njg3NjYxM30.qE_VIA2pTcJRNilSTTV4C3jZ4REYyutxVObRTr6ov_8';
-    const viewer = new Cesium.Viewer('cesiumContainer');
+
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+      terrainProvider: Cesium.createWorldTerrain()
+    });
+
+    viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(2.2861540148838597, 48.831304212691855, 1000.0),
+    });
   </script>
 </body>
 
