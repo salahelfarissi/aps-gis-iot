@@ -2,15 +2,16 @@
 // where your node app starts
 
 // init project
+const path = require('path');
 const express = require('express');
 const app = express();
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('.'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/index.html');
+  response.sendFile(__dirname + 'public');
 });
 
 // listen for requests :)
