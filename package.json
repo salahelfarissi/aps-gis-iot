@@ -2,9 +2,9 @@
   "name": "cesium-template",
   "version": "0.0.1",
   "description": "A simple Cesium template.",
-  "main": "server.js",
+  "main": "start.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node start.js"
   },
   "dependencies": {
     "express": "^4.16.4"
