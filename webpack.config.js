@@ -30,6 +30,18 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    // Copy Cesium Assets, Widgets, and Workers to a static directory
+    new CopyWebpackPlugin([{
+      patterns: [
+        { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
+        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' }
+      ]
+    }]),
+    new webpack.DefinePlugin({
+      // Define relative base path in cesium for loading assets
+      CESIUM_BASE_URL: JSON.stringify('')
     })
   ],
   mode: 'development'
