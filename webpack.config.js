@@ -1,13 +1,16 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
 const cesiumSource = './node_modules/cesium/Source';
 const cesiumWorkers = '../Build/Cesium/Workers';
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // context specifies the directory where webpack should start looking for files to bundle
   context: __dirname,
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js' 
+  },
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
@@ -17,6 +20,12 @@ module.exports = {
   amd: {
     // Enable webpack-friendly use of require in Cesium
     toUrlUndefined: true,
+  },
+  resolve: {
+    alias: {
+      cesium: path.resolve(__dirname, cesiumSource)
+    },
+    mainFiles: ['index', 'Cesium']
   },
   module: {
     rules: [{
@@ -44,5 +53,6 @@ module.exports = {
       CESIUM_BASE_URL: JSON.stringify('')
     })
   ],
-  mode: 'development'
-}
+  mode: 'development',
+  devtool: 'eval',
+};
