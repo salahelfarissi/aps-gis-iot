@@ -1,19 +1,8 @@
-import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from 'cesium';
-import 'cesium/Widgets/widgets.css';
-import '../src/css/main.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './App.scss';
 
-Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNWM5MTIwMS04M2I2LTQ0MDktYTdiYS1lOTU5OTVhN2QwYWQiLCJpZCI6OTk4OTAsImlhdCI6MTY1Njg3NjYxM30.qE_VIA2pTcJRNilSTTV4C3jZ4REYyutxVObRTr6ov_8';
+const el = document.getElementById('app');
 
-const viewer = new Viewer('cesiumContainer', {
-  terrainProvider: createWorldTerrain(),
-})
-
-viewer.scene.primitives.add(createOsmBuildings());
-
-viewer.camera.flyTo({
-  destination: Cartesian3.fromDegrees(-122.4175, 37.655, 400.0),
-  orientation: {
-    heading: Math.toRadians(0.0),
-    pitch: Math.toRadians(-15.0),
-  }
-})
+ReactDOM.render(<App />, el)
