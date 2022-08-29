@@ -28,13 +28,23 @@ module.exports = {
     mainFiles: ['index', 'Cesium']
   },
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: [ 'style-loader', 'css-loader' ]
-    }, {
-      test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-      use: [ 'url-loader' ]
-    }]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      },
+      {
+        test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
+        use: [ 'url-loader' ]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -53,6 +63,9 @@ module.exports = {
       CESIUM_BASE_URL: JSON.stringify('')
     })
   ],
+  devServer: {
+    port: 8080
+  },
   mode: 'development',
   devtool: 'eval',
 };
