@@ -1,8 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import ReactDOM from 'react-dom/client';
+import App from './containers/App';
 import './App.scss';
 
-const el = document.getElementById('cesiumContainer');
+const root = ReactDOM.createRoot(document.getElementById('cesiumContainer'));
 
-ReactDOM.render(<App />, el)
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
