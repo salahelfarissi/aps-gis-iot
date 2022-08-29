@@ -1,6 +1,6 @@
-const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   // context specifies the directory where webpack should start looking for files to bundle
@@ -18,5 +18,11 @@ module.exports = {
       test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
       use: [ 'url-loader' ]
     }]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
+  mode: 'development'
 }
