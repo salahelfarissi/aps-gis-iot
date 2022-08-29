@@ -2,7 +2,7 @@
   "name": "cesium-template",
   "version": "0.0.1",
   "description": "A simple Cesium template.",
-  "main": "start.js",
+  "private": true,
   "scripts": {
     "start": "node start.js"
   },
