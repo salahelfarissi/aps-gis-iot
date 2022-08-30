@@ -21,7 +21,4 @@ function App() {
   return viewer
 }
 
-// Assign the prototype on the function
-App.prototype = Viewer.prototype;
-
 export default App;
