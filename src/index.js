@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './containers/App';
 import './App.scss';
 
-const root = document.getElementById('cesiumContainer');
+const root = ReactDOM.createRoot(document.getElementById('cesiumContainer'));
 
-ReactDOM.render(<App />, root);
+root.render(<App />);
