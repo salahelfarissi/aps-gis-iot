@@ -4,7 +4,7 @@
   "description": "A Cesium-IoT platform.",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode development",
+    "build": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development",
     "start": "node ./dist/server.js"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "cesium": "^1.96.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.54.5",

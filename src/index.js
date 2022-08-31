@@ -1,8 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './containers/App';
-import './App.scss';
-
-const root = ReactDOM.createRoot(document.getElementById('cesiumContainer'));
-
-root.render(<App />);
+import logMessage from './js/logger'
+import './css/style.css'
+// Log message to console
+logMessage('Welcome to Expack!')
