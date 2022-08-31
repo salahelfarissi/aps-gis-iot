@@ -1,71 +1,47 @@
-const cesiumSource = 'node_modules/cesium/Source';
-const cesiumWorkers = '../Build/Cesium/Workers';
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  // context specifies the directory where webpack should start looking for files to bundle
-  context: __dirname,
   entry: {
-    app: './src/index.js' 
+    server: './server.js',
   },
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, 'dist'),
-    // Needed to compile multiline strings in Cesium
-    sourcePrefix: '',
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/',
+    filename: '[name].js'
   },
-  amd: {
-    // Enable webpack-friendly use of require in Cesium
-    toUrlUndefined: true,
+  target: 'node',
+  node: {
+    // Need this when working with express, otherwise the build fails
+    __dirname: false,   // if you don't put this is, __dirname
+    __filename: false,  // and __filename return blank or /
   },
-  resolve: {
-    alias: {
-      cesium: path.resolve(__dirname, cesiumSource)
-    },
-    mainFiles: ['index', 'Cesium']
-  },
+  externals: [nodeExternals()], // Need this to avoid error when working with Express
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        // Transpiles ES6-8 into ES5
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
         }
       },
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-      },
-      {
-        test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-        use: [ 'url-loader' ]
+        // Loads the javacript into html template provided.
+        // Entry point is set below in HtmlWebPackPlugin in Plugins 
+        test: /\.html$/,
+        use: [{loader: "html-loader"}]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
-    // Copy Cesium Assets, Widgets, and Workers to a static directory
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' }
-      ]
-    }),
-    new webpack.DefinePlugin({
-      // Define relative base path in cesium for loading assets
-      CESIUM_BASE_URL: JSON.stringify('')
+      template: "./index.html",
+      filename: "./index.html",
+      excludeChunks: [ 'server' ]
     })
-  ],
-  devServer: {
-    port: 8080
-  },
-  mode: 'development',
-  devtool: 'eval',
-};
+  ]
+}
