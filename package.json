@@ -17,9 +17,11 @@
     }
   },
   "dependencies": {
+    "cesium": "^1.96.0",
     "express": "^4.17.1",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "resium": "^1.15.0"
   },
   "engines": {
     "node": ">=4.3.2"
