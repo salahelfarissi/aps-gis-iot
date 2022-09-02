@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlTagsPlugin = require('html-webpack-tags-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -56,7 +56,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
+    new HtmlWebpackPlugin({
       template: "./src/html/index.html",
       filename: "./index.html",
       excludeChunks: [ 'server' ]
