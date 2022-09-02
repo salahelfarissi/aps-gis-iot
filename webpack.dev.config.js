@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const HtmlTagsPlugin = require('html-webpack-tags-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -60,6 +62,24 @@ module.exports = {
       excludeChunks: [ 'server' ]
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
+    new webpack.NoEmitOnErrorsPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'node_modules/cesium/Build/Cesium',
+          to: 'Cesium'
+        }
+      ]
+    }),
+    new HtmlTagsPlugin({
+      append: false,
+      tags: ['cesium/Widgets/widgets.css', 'Cesium/Cesium.js'],
+    }),
+    new webpack.DefinePlugin({
+      CESIUM_BASE_URL: JSON.stringify('cesium'),
+    })
+  ],
+  externals: {
+    cesium: "Cesium"
+  }
 }
