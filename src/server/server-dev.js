@@ -1,25 +1,12 @@
 import path from 'path'
 import express from 'express'
-import webpack from 'webpack'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-import config from '../../webpack.dev.config.js'
 
-const app = express(),
-            DIST_DIR = __dirname,
-            HTML_FILE = path.join(DIST_DIR, 'index.html'),
-            compiler = webpack(config)
+const app = express(), DIST_DIR = __dirname, HTML_FILE = path.join(DIST_DIR, 'index.html');
 
-app.use(webpackHotMiddleware(compiler))
+app.use(express.static(DIST_DIR));
 
-app.get('*', (req, res, next) => {
-  compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {
-  if (err) {
-    return next(err)
-  }
-  res.set('content-type', 'text/html')
-  res.send(result)
-  res.end()
-  })
+app.get('*', (req, res) => {
+  res.sendFile(HTML_FILE)
 })
 
 const PORT = process.env.PORT || 8080

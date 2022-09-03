@@ -8,7 +8,7 @@ const cesiumWorkers = '../Build/Cesium/Workers';
 
 module.exports = {
   entry: {
-    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
+    main: ['./src/index.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -81,8 +81,6 @@ module.exports = {
       filename: "./index.html",
       excludeChunks: [ 'server' ]
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
