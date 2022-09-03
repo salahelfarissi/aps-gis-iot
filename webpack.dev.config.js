@@ -32,6 +32,8 @@ module.exports = {
   target: 'web',
   devtool: '#source-map',
   module: {
+    unknownContextCritical: false,
+    unknownContextRegExp: /^.\/.*$/,
     rules: [
       {
         test: /\.mjs$/,
@@ -92,5 +94,5 @@ module.exports = {
     new webpack.DefinePlugin({
       CESIUM_BASE_URL: JSON.stringify('')
     })
-  ]
+  ],
 }
