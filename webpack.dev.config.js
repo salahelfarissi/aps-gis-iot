@@ -30,6 +30,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      },
+      {
         enforce: "pre",
         test: /\.js$/,
         exclude: /node_modules/,
