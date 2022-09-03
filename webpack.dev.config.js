@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const cesiumSource = 'node_modules/cesium/Source';
+
 module.exports = {
   entry: {
     main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
@@ -9,7 +11,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].js',
+    sourcePrefix: ''
+  },
+  amd: {
+    toUrlUndefined: true
+  },
+  resolve: {
+    alias: {
+      cesium: path.resolve(__dirname, cesiumSource)
+    },
+    mainFiles: ['index', 'Cesium'],
   },
   mode: 'development',
   target: 'web',
