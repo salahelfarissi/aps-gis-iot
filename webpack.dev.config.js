@@ -81,14 +81,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/pages/index.html",
       filename: "./index.html",
-      excludeChunks: [ 'server' ]
+      excludeChunks: [ 'server' ],
+      favicon: './src/assets/favicons/favicon.ico'
     }),
     new CopyWebpackPlugin({
       patterns: [
         { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-        { from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' },
-        { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' },
-        { from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' },
+        { from: path.join(cesiumSource, 'ThirdParty'), to: 'ThirdParty' },
+        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
       ]         
     }),
     new webpack.DefinePlugin({
