@@ -1,5 +1,5 @@
 {
-  "name": "cesium-app",
+  "name": "cesium-gis-iot",
   "version": "0.0.1",
   "description": "A Cesium-IoT platform.",
   "main": "index.js",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "keywords": [
     "cesium",
-    "glitch",
+    "webpack",
     "express"
   ],
   "devDependencies": {
