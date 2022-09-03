@@ -1,13 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Message from './js/Message'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './containers/App';
+import './css/style.css';
 
-import './css/style.css'
+const root = ReactDOM.createRoot(document.getElementById('cesiumContainer'));
 
-ReactDOM.render(
-  <Message />,
-  document.getElementById('react-container') // eslint-disable-line no-undef
-)
+root.render(<App />);
 
 // Needed for Hot Module Replacement
 if(typeof(module.hot) !== 'undefined') { // eslint-disable-line no-undef  
