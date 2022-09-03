@@ -1,8 +1,10 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const cesiumSource = 'node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
 
 module.exports = {
   entry: {
@@ -51,7 +53,7 @@ module.exports = {
         use: [
           {
             loader: "html-loader",
-            //options: { minimize: true }
+            options: { minimize: true }
           }
         ]
       },
@@ -73,5 +75,15 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-  ],
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
+        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
+      ]         
+    }),
+    new webpack.DefinePlugin({
+      CESIUM_BASE_URL: JSON.stringify('')
+    })
+  ]
 }
