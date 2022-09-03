@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const cesiumSource = 'node_modules/cesium/Source';
-const cesiumWorkers = '../Build/Cesium/Workers';
 
 module.exports = {
   entry: {
@@ -77,9 +76,10 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
+        { from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' },
+        { from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' },
+        { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' },
+        { from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' },
       ]         
     }),
     new webpack.DefinePlugin({
