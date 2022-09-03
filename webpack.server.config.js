@@ -5,9 +5,8 @@
  *
  * Note: that prod and dev mode are set in npm scripts.
  */
-const path = require('path')
-const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
   const SERVER_PATH = (argv.mode === 'production') ?
@@ -45,9 +44,3 @@ module.exports = (env, argv) => {
     }
   })
 }
-
-// Webpack 4 basic tutorial:
-// https://www.valentinog.com/blog/webpack-4-tutorial/#webpack_4_production_and_development_mode
-
-// Development mode is optimized for build speed and does nothing more than providing an un-minified bundle.
-// Production mode enables all sorts of optimizations like minification, scope hoisting, tree-shaking and more.
