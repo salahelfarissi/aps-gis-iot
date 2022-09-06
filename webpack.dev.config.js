@@ -1,3 +1,5 @@
+"use strict";
+
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -19,18 +21,26 @@ module.exports = {
   amd: {
     toUrlUndefined: true
   },
-  node: {
-    fs: 'empty'
-  },
   resolve: {
     alias: {
       cesium: path.resolve(__dirname, cesiumSource)
     },
     mainFiles: ['index', 'Cesium'],
+    fallback: {
+      "fs": false,
+      "tls": false,
+      "net": false,
+      "path": false,
+      "zlib": false,
+      "http": false,
+      "https": false,
+      "stream": false,
+      "crypto": false,
+      "url": false,
+    }
   },
   mode: 'development',
   target: 'web',
-  devtool: '#source-map',
   module: {
     unknownContextCritical: false,
     unknownContextRegExp: /^.\/.*$/,
@@ -72,8 +82,8 @@ module.exports = {
         use: [ 'style-loader', 'css-loader' ]
       },
       {
-       test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/,
-       use: ['url-loader']
+        test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/,
+        use: ['url-loader']
       }
     ]
   },
