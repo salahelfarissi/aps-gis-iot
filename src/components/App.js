@@ -1,4 +1,3 @@
-import 'cesium/Widgets/widgets.css';
 import { Viewer, Entity, PointGraphics, EntityDescription } from 'resium';
 import { Cartesian3, createWorldTerrain } from 'cesium';
 import React from 'react';
