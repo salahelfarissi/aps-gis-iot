@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const cesiumSource = 'node_modules/cesium/Source';
 const cesiumWorkers = '../Build/Cesium/Workers';
@@ -104,6 +105,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       CESIUM_BASE_URL: JSON.stringify(''),
-    })
+    }),
+    new Dotenv()
   ],
 }
