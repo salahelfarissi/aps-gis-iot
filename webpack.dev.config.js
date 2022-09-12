@@ -5,6 +5,7 @@ const webpack = require('webpack');
 // To avoid modifying html file manually, we use HtmlWebpackPlugin
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const cesiumSource = 'node_modules/cesium/Source';
 const cesiumWorkers = '../Build/Cesium/Workers';
@@ -31,13 +32,13 @@ module.exports = {
       "fs": false,
       "tls": false,
       "net": false,
-      "path": false,
       "zlib": false,
       "http": false,
       "https": false,
       "stream": false,
       "crypto": false,
       "url": false,
+      "os": require.resolve("os-browserify/browser")
     }
   },
   mode: 'development',
@@ -105,6 +106,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       CESIUM_BASE_URL: JSON.stringify(''),
-    })
+    }),
+    new Dotenv()
   ],
 }
