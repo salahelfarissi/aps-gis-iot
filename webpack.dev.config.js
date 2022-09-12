@@ -11,42 +11,26 @@ const cesiumSource = 'node_modules/cesium/Source';
 const cesiumWorkers = '../Build/Cesium/Workers';
 
 module.exports = {
+  mode: 'development',
   entry: {
-    main: ['./src/index.js']
+    bundle: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    // name corresponds to entry name (bundle)
     filename: '[name].js',
-    sourcePrefix: ''
   },
-  amd: {
-    toUrlUndefined: true
-  },
-  resolve: {
-    alias: {
-      cesium: path.resolve(__dirname, cesiumSource)
-    },
-    mainFiles: ['index', 'Cesium'],
-    fallback: {
-      "fs": false,
-      "tls": false,
-      "net": false,
-      "zlib": false,
-      "http": false,
-      "https": false,
-      "stream": false,
-      "crypto": false,
-      "url": false,
-      "os": require.resolve("os-browserify/browser")
-    }
-  },
-  mode: 'development',
-  target: 'web',
+  // Specing our loaders
   module: {
-    unknownContextCritical: false,
-    unknownContextRegExp: /^.\/.*$/,
     rules: [
+      { 
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,
@@ -79,16 +63,36 @@ module.exports = {
           }
         ]
       },
-      { 
-        test: /\.(sa|sc|c)ss$/,
-        use: [ 'style-loader', 'css-loader' ]
-      },
       {
         test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/,
         use: ['url-loader']
       }
-    ]
+    ],
+    unknownContextCritical: false,
+    unknownContextRegExp: /^.\/.*$/,
   },
+  amd: {
+    toUrlUndefined: true
+  },
+  resolve: {
+    alias: {
+      cesium: path.resolve(__dirname, cesiumSource)
+    },
+    mainFiles: ['index', 'Cesium'],
+    fallback: {
+      "fs": false,
+      "tls": false,
+      "net": false,
+      "zlib": false,
+      "http": false,
+      "https": false,
+      "stream": false,
+      "crypto": false,
+      "url": false,
+      "os": require.resolve("os-browserify/browser")
+    }
+  },
+  target: 'web',
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/pages/index.html",
