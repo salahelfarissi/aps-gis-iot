@@ -64,7 +64,7 @@ module.exports = {
       filename: "./index.html",
       template: "./public/index.html",
       excludeChunks: [ 'server' ],
-      favicon: './src/assets/favicons/favicon.ico',
+      favicon: './public/favicon.ico',
     }),
     new CopyWebpackPlugin({
       patterns: [
