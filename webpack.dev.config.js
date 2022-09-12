@@ -30,6 +30,17 @@ module.exports = {
           'sass-loader'
         ]
       },
+      // For baclwards compatibility
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,
@@ -45,11 +56,6 @@ module.exports = {
           failOnError: false,
           failOnWarning: false
         }
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
       },
       {
         test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/,
