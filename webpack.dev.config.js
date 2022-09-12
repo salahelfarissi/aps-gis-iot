@@ -16,9 +16,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     // name corresponds to entry name (bundle)
-    filename: '[name].[contenthash].js',
+    filename: '[name][contenthash].js',
   },
-  // Specing our loaders
+  devtool: 'source-map',
+  // Specifying our loaders
   module: {
     rules: [
       { 
