@@ -1,5 +1,3 @@
-"use strict";
-
 const path = require('path');
 const webpack = require('webpack');
 // To avoid modifying html file manually, we use HtmlWebpackPlugin
@@ -51,17 +49,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader",
-      },
-      {
-        // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins 
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
       },
       {
         test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/,
