@@ -71,6 +71,27 @@ module.exports = {
     unknownContextCritical: false,
     unknownContextRegExp: /^.\/.*$/,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Cesium-GIS-Iot',
+      filename: "./index.html",
+      template: "./public/index.html",
+      excludeChunks: [ 'server' ],
+      favicon: './src/assets/favicons/favicon.ico'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
+        { from: path.join(cesiumSource, 'ThirdParty'), to: 'ThirdParty' },
+        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
+      ]         
+    }),
+    new webpack.DefinePlugin({
+      CESIUM_BASE_URL: JSON.stringify(''),
+    }),
+    new Dotenv()
+  ],
   amd: {
     toUrlUndefined: true
   },
@@ -93,24 +114,4 @@ module.exports = {
     }
   },
   target: 'web',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/pages/index.html",
-      filename: "./index.html",
-      excludeChunks: [ 'server' ],
-      favicon: './src/assets/favicons/favicon.ico'
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-        { from: path.join(cesiumSource, 'ThirdParty'), to: 'ThirdParty' },
-        { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-        { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
-      ]         
-    }),
-    new webpack.DefinePlugin({
-      CESIUM_BASE_URL: JSON.stringify(''),
-    }),
-    new Dotenv()
-  ],
 }
