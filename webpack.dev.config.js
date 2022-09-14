@@ -17,6 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     // name corresponds to entry name (bundle)
     filename: '[name][contenthash].js',
+    assetModuleFilename: '[name][ext]',
   },
   devtool: 'source-map',
   // Specifying our loaders
@@ -58,7 +59,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/,
+        test: /\.(png|svg|jpg|gif|jpeg|xml|json)$/i,
         use: ['url-loader']
       }
     ],
