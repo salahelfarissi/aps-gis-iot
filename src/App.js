@@ -10,10 +10,8 @@ function App() {
   return (
     <Router>
       <Header />
-      <main>
         <Route path="/" exact component={ModelViewer} />
         <Route path="/about" component={About} />
-      </main>
     </Router>
   );
 }
