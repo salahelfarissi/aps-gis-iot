@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Container, Row, Col, Navbar, Nav, NavLink, NavItem, NavbarBrand
@@ -24,7 +25,7 @@ const Header = () => (
               </NavItem>
 
               <NavItem className="d-flex align-items-center">
-                <NavLink className="font-weight-bold" href="/">Home</NavLink>
+                <NavLink tag={Link} className="font-weight-bold" to="/">Home</NavLink>
               </NavItem>
 
             </Nav>
@@ -39,7 +40,7 @@ const Header = () => (
           <Col className="d-none d-lg-flex justify-content-end">
             <Nav className="mrx-auto" navbar>
               <NavItem className="d-flex align-items-center">
-                <NavLink className="font-weight-bold" href="/about">About</NavLink>
+                <NavLink tag={Link} className="font-weight-bold" to="/about">About</NavLink>
               </NavItem>
             </Nav>
           </Col>

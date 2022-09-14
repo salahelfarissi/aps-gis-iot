@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import About from './components/About';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import ModelViewer from './components/ModelViewer';
@@ -9,7 +11,8 @@ function App() {
     <Router>
       <Header />
       <main>
-        <ModelViewer />
+        <Route path="/" exact component={ModelViewer} />
+        <Route path="/about" component={About} />
       </main>
     </Router>
   );
