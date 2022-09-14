@@ -14,7 +14,7 @@ module.exports = {
     bundle: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     // name corresponds to entry name (bundle)
     filename: '[name][contenthash].js',
     assetModuleFilename: '[name][ext]',
