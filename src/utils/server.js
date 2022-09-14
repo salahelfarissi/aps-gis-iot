@@ -15,7 +15,7 @@ export default function createServer() {
     }
   });
 
-  app.use(express.static(__dirname));
+  app.use(express.static('dist'));
 
   return app;
 
