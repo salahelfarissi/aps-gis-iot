@@ -1,26 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  font-family: helvetica;
-  color: #3e3e3e;
-}
-
-.description {
-  font-size: 14px;
-  color: #9e9e9e;
-}
-
 html,
-body,
-#cesiumContainer {
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  height: 100%;
+}
+
+#root {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 95px auto 125px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 34px;
+  align-items: center;
 }
