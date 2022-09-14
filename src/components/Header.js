@@ -24,7 +24,7 @@ const Header = () => (
               </NavItem>
 
               <NavItem className="d-flex align-items-center">
-                <NavLink className="font-weight-bold" to="/">Home</NavLink>
+                <NavLink className="font-weight-bold" href="/">Home</NavLink>
               </NavItem>
 
             </Nav>
@@ -39,7 +39,7 @@ const Header = () => (
           <Col className="d-none d-lg-flex justify-content-end">
             <Nav className="mrx-auto" navbar>
               <NavItem className="d-flex align-items-center">
-                <NavLink className="font-weight-bold" to="/">About</NavLink>
+                <NavLink className="font-weight-bold" href="/about">About</NavLink>
               </NavItem>
             </Nav>
           </Col>
