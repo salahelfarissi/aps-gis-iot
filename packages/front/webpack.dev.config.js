@@ -11,13 +11,14 @@ const cesiumWorkers = '../Build/Cesium/Workers';
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: path.resolve(__dirname, 'src/index.js'),
+    bundle: './src/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     // name corresponds to entry name (bundle)
-    filename: '[name][contenthash].js',
+    filename: '[name].[contenthash].js',
     assetModuleFilename: '[name][ext]',
+    publicPath: '/',
   },
   devtool: 'source-map',
   // Specifying our loaders
