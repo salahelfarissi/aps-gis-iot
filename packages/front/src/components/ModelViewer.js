@@ -2,7 +2,7 @@ import React from 'react';
 import { Viewer, Entity, PointGraphics, EntityDescription } from 'resium';
 import { Cartesian3, createWorldTerrain, Ion } from 'cesium';
 
-Ion.defaultAccessToken = process.env.ACCESS_TOKEN;
+Ion.defaultAccessToken = process.env.REACT_APP_ACCESS_TOKEN;
 
 const terrainProvider = createWorldTerrain();
 const position = Cartesian3.fromDegrees(2.2851128, 48.8305753, 100);
