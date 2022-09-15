@@ -44,6 +44,32 @@ app.get('/metrics/:id', async (req, res) => {
   }
 });
 
+// Update a metric
+app.put('/metrics/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { timestamp, sensor_type, metric } = req.body;
+    const updateMetric = await pool.query(
+      'UPDATE metrics SET timestamp = $1, sensor_type = $2, metric = $3 WHERE sensor_id = $4',
+      [timestamp, sensor_type, metric, id]);
+
+    res.json('Metric was updated!');
+    } catch (err) {
+      console.error(err.message);
+    }
+});
+
+// Delete a metric
+app.delete('/metrics/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteMetric = await pool.query('DELETE FROM metrics WHERE sensor_id = $1', [id]);
+    res.json('Metric was deleted!');
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 app.listen(5000, () => {
   console.log('Server is running on port 5000.');
 });
