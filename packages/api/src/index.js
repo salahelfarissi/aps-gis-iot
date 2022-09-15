@@ -8,6 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+
+// Create a metric
 app.post('/metrics', async (req, res) => {
   try {
     const { timestamp, sensor_type, metric } = req.body;
@@ -16,6 +18,27 @@ app.post('/metrics', async (req, res) => {
       [timestamp, sensor_type, metric]);
 
     res.json(newMetric.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// Get all metrics
+app.get('/metrics', async (req, res) => {
+  try {
+    const allMetrics = await pool.query('SELECT * FROM metrics');
+    res.json(allMetrics.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// Get a metric
+app.get('/metrics/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const metric = await pool.query('SELECT * FROM metrics WHERE sensor_id = $1', [id]);
+    res.json(metric.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
