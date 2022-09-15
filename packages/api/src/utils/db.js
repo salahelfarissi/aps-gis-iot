@@ -8,9 +8,9 @@ const pool = new Pool({
   port: process.env.PG_PORT,
 });
 
-const getUsers = () => {
+const getMetrics = () => {
   return new Promise(function(resolve, reject) {
-    pool.query('SELECT * FROM users', (error, results) => {
+    pool.query('SELECT * FROM metrics', (error, results) => {
       if (error) {
         reject(error);
       }
@@ -20,5 +20,5 @@ const getUsers = () => {
 };
 
 module.exports = {
- getUsers,
+ getMetrics,
 };
