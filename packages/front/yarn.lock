@@ -9261,6 +9261,11 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
+plotly.js-strict-dist-min@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/plotly.js-strict-dist-min/-/plotly.js-strict-dist-min-2.14.0.tgz#036508eeaa179e6e55cdc5ff440459e99b5c35df"
+  integrity sha512-sMJ9nj+H2ShV806iPJbF/qfLBawJpisvgTfy9hgKUShDsUOrIc9ZvoHD+6PoFYqakVcGIIMSpb4i6fJCeiycaA==
+
 plotly.js@^2.14.0:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/plotly.js/-/plotly.js-2.14.0.tgz#082fbaad893f20bf083fac982755b36699ff052c"
