@@ -10,7 +10,7 @@ import logo from '../assets/logo.png';
 
 const Header = () => (
   <header>
-    <Navbar fixed="top" color="light" light expand="xs" className="border-bottom border-gray bg-white" style={{ height: 80 }}>
+    <Navbar fixed="top" color="light" light expand="xs" className="border-bottom border-gray bg-white" style={{ height: 95 }}>
 
       <Container>
         <Row className="position-relative w-100 align-items-center g-0">
