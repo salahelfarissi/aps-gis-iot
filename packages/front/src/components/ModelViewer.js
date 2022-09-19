@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Viewer, Entity, PointGraphics, EntityDescription } from 'resium';
 import { Cartesian3, createWorldTerrain, Ion } from 'cesium';
 import { Container, Row, Col } from 'reactstrap';
@@ -8,11 +8,14 @@ Ion.defaultAccessToken = process.env.REACT_APP_ACCESS_TOKEN;
 const terrainProvider = createWorldTerrain();
 const position = Cartesian3.fromDegrees(2.2851128, 48.8305753, 100);
 
-const ModelViewer = () => (
+const ModelViewer = () => {
+  const [metric, setMetric] = useState('Hello');
+
+  return (
   <Container className='mt-3'>
     <Row>
       <Col className='col-4 d-flex align-items-center'>
-        <h1 className='text-center mt-1'>Ligne 12 (Porte de Versailles)</h1>
+        <h1 className='text-center mt-1'>{metric}</h1>
       </Col>
       <Col className='col-8'>
         <Viewer
@@ -29,5 +32,6 @@ const ModelViewer = () => (
     </Row>
   </Container>
   )
+}
 
 export default ModelViewer;
