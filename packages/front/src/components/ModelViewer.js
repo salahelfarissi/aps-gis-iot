@@ -28,6 +28,6 @@ const ModelViewer = () => (
       </Col>
     </Row>
   </Container>
-  )
+)
 
 export default ModelViewer;
