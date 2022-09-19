@@ -1,4 +1,4 @@
-# A Cesium-IoT platform
+# Mesium
 
 A Nodejs app for real-time monitoring of railways.
 
@@ -12,3 +12,9 @@ A Nodejs app for real-time monitoring of railways.
 - [ESLint](https://eslint.org/)
 - [Babel](https://babeljs.io/)
 - [Sass](https://sass-lang.com/)
+
+## To start using Mesium API
+
+```{shell}
+yarn global add nodemon
+```
