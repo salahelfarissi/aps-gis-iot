@@ -15,6 +15,20 @@ A Nodejs app for real-time monitoring of railways.
 
 ## To start using Mesium API
 
-```{shell}
+``` shell
 yarn global add nodemon
+```
+
+## Database
+Create your database.
+``` sql
+CREATE DATABASE iot;
+```
+Install required tables
+``` shell
+# go to sql folder
+$ cd packages/sql/
+
+# Inject queries
+$ psql -f index.sql
 ```
