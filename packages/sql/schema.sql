@@ -1,8 +1,16 @@
-CREATE DATABASE iot;
+COMMIT;
+BEGIN;
 
-CREATE TABLE metrics (
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+DROP TABLE IF EXISTS measures;
+CREATE TABLE measures (
   sensor_id SERIAL PRIMARY KEY,
   "timestamp" TIMESTAMP,
   sensor_type TEXT DEFAULT 'STA',
-  metric jsonb NOT NULL DEFAULT '{}'::jsonb
+  measure jsonb NOT NULL DEFAULT '{}'::jsonb
 );
+
+COMMIT;
