@@ -26,8 +26,8 @@ app.post('/measures', async (req, res) => {
 // Get all measures
 app.get('/measures', async (req, res) => {
   try {
-    const allMeasures = await pool.query('SELECT * FROM measures');
-    res.json(allMeasures.rows[0]);
+    const allMeasures = await pool.query("SELECT timestamp, measure->'displacement' AS displacement from measures");
+    res.json(allMeasures.rows);
   } catch (err) {
     console.error(err.message);
   }

@@ -5,14 +5,15 @@ import Plotly from 'plotly.js-strict-dist-min';
 const Plot = createPlotlyComponent(Plotly);
 
 const Graph = () => {
-  const [data, setData] = useState([]);
+
+  const [measures, setMeasures] = useState([]);
 
   const getMeasures = async () => {
     try {
       const response = await fetch('http://localhost:5000/measures');
       const jsonData = await response.json();
 
-      console.log(jsonData);
+      setMeasures(jsonData);
     } catch (error) {
       console.error(error.message);
     }
@@ -20,14 +21,26 @@ const Graph = () => {
 
   useEffect(() => {
     getMeasures();
-  })
+  }, []);
+
+  const transformData = (data) => {
+    const x = [];
+    const y = [];
+
+    data.forEach((measure) => {
+      x.push(measure.timestamp);
+      y.push(measure.displacement);
+    });
+
+    return { x, y };
+  }
 
   return (
     <Plot
       data={[
         {
-          x: data,
-          y: data,
+          x: transformData(measures)['x'],
+					y: transformData(measures)['y'],
           mode: 'lines',
           type: 'scatter',
           marker: { color: 'red' },
