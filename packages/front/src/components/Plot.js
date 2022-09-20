@@ -41,9 +41,9 @@ const Graph = () => {
         {
           x: transformData(measures)['x'],
 					y: transformData(measures)['y'],
-          mode: 'lines',
+          mode: 'lines+markers',
           type: 'scatter',
-          marker: { color: 'red' },
+          marker: { color: '#0082de' },
         },
       ]}
       layout={{ title: 'Displacement of rails' }}
