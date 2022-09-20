@@ -44,9 +44,10 @@ const Graph = () => {
           mode: 'lines+markers',
           type: 'scatter',
           marker: { color: '#0082de' },
+          name: 'Displacement',
         },
       ]}
-      layout={{ title: 'Displacement of rails' }}
+      layout={{ title: 'Displacement of rails', showlegend: true }}
       config={{ responsive: true }}
       className="plot"
     />
