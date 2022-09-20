@@ -1,5 +1,5 @@
 \echo '\n==============[schema.sql]=================='
-\i ./schema.sql
+\i current/schema.sql
 
 \echo '\n==============[measures.sql]=================='
-\i ./measures.sql
+\i current/measures.sql
