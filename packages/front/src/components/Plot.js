@@ -46,7 +46,9 @@ const Graph = () => {
           marker: { color: 'red' },
         },
       ]}
-      layout={{ width: 600, height: 340, title: 'Displacement of rails' }}
+      layout={{ title: 'Displacement of rails' }}
+      config={{ responsive: true }}
+      className="plot"
     />
   )
 }
