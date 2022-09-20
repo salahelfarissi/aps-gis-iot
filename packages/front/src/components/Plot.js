@@ -1,20 +1,54 @@
+import React, { useState, useEffect } from 'react';
 import createPlotlyComponent from 'react-plotly.js/factory';
 import Plotly from 'plotly.js-strict-dist-min';
 
 const Plot = createPlotlyComponent(Plotly);
 
-const Graph = () => (
-  <Plot
-    data={[
-      {
-        x: ['2022-05-19 00:06:56', '2022-05-19 00:07:55', '2022-05-19 00:08:57'],
-        y: [0.003, 0.004, 0.005],
-        mode: 'lines+markers',
-        type: 'scatter',
-      },
-    ]}
-    layout={ {width: 600, height: 340, title: 'Displacement of rails'} }
-  />
-)
+const Graph = () => {
+
+  const [measures, setMeasures] = useState([]);
+
+  const getMeasures = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/measures');
+      const jsonData = await response.json();
+
+      setMeasures(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    getMeasures();
+  }, []);
+
+  const transformData = (data) => {
+    const x = [];
+    const y = [];
+
+    data.forEach((measure) => {
+      x.push(measure.timestamp);
+      y.push(measure.displacement);
+    });
+
+    return { x, y };
+  }
+
+  return (
+    <Plot
+      data={[
+        {
+          x: transformData(measures)['x'],
+					y: transformData(measures)['y'],
+          mode: 'lines',
+          type: 'scatter',
+          marker: { color: 'red' },
+        },
+      ]}
+      layout={{ width: 600, height: 340, title: 'Displacement of rails' }}
+    />
+  )
+}
 
 export default Graph;
