@@ -40,60 +40,62 @@ const ScatterPlot = () => {
 
   const { x, y } = transformData(measures);
 
+  const data = [
+    {
+      x: x,
+      y: y,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Displacement',
+      marker: {
+        color: secondaryColor,
+        size: 5,
+        opacity: 0.5,
+      },
+      line: {
+        color: primaryColor,
+      },
+      hovertemplate: '<b>Displacement</b> %{y:.3f} m<extra></extra><br><b>Time</b> %{x}',
+    },
+  ]
+
+  const layout = {
+      title: {
+        text: 'Displacement of rails',
+        font: {
+          family: 'Roboto, sans-serif',
+          size: 18,
+        },
+        xref: 'paper',
+        x: 0.05, 
+      },
+      font: {
+        family: 'Open Sans, sans-serif',
+      },
+      showlegend: true,
+      legend: {'orientation': 'h'},
+      xaxis: {
+        title: 'Time',
+        type: 'date',
+      },
+      yaxis: {
+        range: [0, 0.008],
+      },
+      hovermode: 'closest',
+      hoverlabel: { bgcolor: primaryColor },
+    }
+
+  const config = {
+    responsive: true,
+    scrollZoom: true,
+    displaylogo: false,
+  }
+
   return (
     <Plot
-      data={[
-        {
-          x: x,
-					y: y,
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Displacement',
-          marker: {
-            color: secondaryColor,
-            size: 5,
-            opacity: 0.5,
-          },
-          line: {
-            color: primaryColor,
-          },
-          hovertemplate: '<b>Displacement</b> %{y:.3f} m<extra></extra><br><b>Time</b> %{x}',
-        },
-      ]}
-      layout={
-        {
-          title: {
-            text: 'Displacement of rails',
-            font: {
-              family: 'Roboto, sans-serif',
-              size: 18,
-            },
-            xref: 'paper',
-            x: 0.05, 
-          },
-          font: {
-            family: 'Open Sans, sans-serif',
-          },
-          showlegend: true,
-          legend: {'orientation': 'h'},
-          xaxis: {
-            title: 'Time',
-            type: 'date',
-          },
-          yaxis: {
-            range: [0, 0.008],
-          },
-          hovermode: 'closest',
-          hoverlabel: { bgcolor: primaryColor },
-        }
-      }
-      config={
-        {
-          responsive: true,
-          scrollZoom: true,
-          displaylogo: false,
-        }
-      }
+      data={data}
+      layout={layout}
+      config={config}
       className="plot"
     />
   )
