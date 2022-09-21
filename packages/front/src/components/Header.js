@@ -1,47 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
-  Row, Col, Navbar, Nav, NavLink, NavItem, NavbarBrand
+  Col,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavLink,
+  NavItem,
+  NavbarBrand,
+  Collapse
 } from 'reactstrap';
 
 import avatar from '../assets/avatar.png';
 import logo from '../assets/logo.png';
 
-const Header = () => (
-  <Navbar color="light" light expand="xs" className="bg-white">
-      <Row className="w-100 align-items-center g-0">
-        <Col className="d-none d-lg-flex justify-content-start">
-          <Nav className="mrx-auto" navbar>
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-            <NavItem className="d-flex align-items-center">
-              <NavLink className="font-weight-bold" to="/">
-                <img src={avatar} alt="avatar" className="img-fluid rounded-circle" style={{ width: 36 }} />
-              </NavLink>
-            </NavItem>
+  const toggle = () => setIsOpen(!isOpen);
 
-            <NavItem className="d-flex align-items-center">
-              <NavLink tag={Link} className="font-weight-bold" to="/">Home</NavLink>
-            </NavItem>
+  return (
+  <div>
+    <Navbar expand="sm" className="bg-white">
+      <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+            <Col className="d-none d-lg-flex justify-content-start">
+              <Nav className="me-auto" navbar>
 
-          </Nav>
-        </Col>
+                <NavItem className="d-flex align-items-center">
+                  <NavLink className="font-weight-bold" to="/">
+                    <img src={avatar} alt="avatar" className="img-fluid rounded-circle" style={{ width: 36 }} />
+                  </NavLink>
+                </NavItem>
 
-        <Col className="d-flex justify-content-xs-start justify-content-lg-center">
-          <NavbarBrand className="d-inline-block p-0" to="/" style={{ width: 80 }}>
-            <img src={logo} alt="logo" className="position-relative img-fluid" />
-          </NavbarBrand>
-        </Col>
+                <NavItem className="d-flex align-items-center">
+                  <NavLink tag={Link} className="font-weight-bold" to="/">Home</NavLink>
+                </NavItem>
 
-        <Col className="d-none d-lg-flex justify-content-end">
-          <Nav className="mrx-auto" navbar>
-            <NavItem className="d-flex align-items-center">
-              <NavLink tag={Link} className="font-weight-bold" to="/about">About</NavLink>
-            </NavItem>
-          </Nav>
-        </Col>
-      </Row>
-  </Navbar>
+              </Nav>
+            </Col>
+
+            <Col className="d-flex justify-content-xs-start justify-content-lg-center">
+              <NavbarBrand className="d-inline-block p-0" to="/" style={{ width: 90 }}>
+                <img src={logo} alt="logo" className="position-relative img-fluid" />
+              </NavbarBrand>
+            </Col>
+
+            <Col className="d-none d-lg-flex justify-content-end">
+              <Nav className="mrx-auto" navbar>
+                <NavItem className="d-flex align-items-center">
+                  <NavLink tag={Link} className="font-weight-bold" to="/about">About</NavLink>
+                </NavItem>
+              </Nav>
+            </Col>
+        </Collapse>
+    </Navbar>
+  </div>
 );
+  }
 
 export default Header;
