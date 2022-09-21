@@ -19,6 +19,9 @@ const Graph = () => {
     }
   }
 
+  const primaryColor = '#0082de';
+  const secondaryColor = '#005499';
+
   useEffect(() => {
     getMeasures();
   }, []);
@@ -43,12 +46,52 @@ const Graph = () => {
 					y: transformData(measures)['y'],
           mode: 'lines+markers',
           type: 'scatter',
-          marker: { color: '#0082de' },
           name: 'Displacement',
+          marker: {
+            color: secondaryColor,
+            size: 5,
+            opacity: 0.5,
+          },
+          line: {
+            color: primaryColor,
+          },
+          hovertemplate: '<b>Displacement</b> %{y:.3f} m<extra></extra><br><b>Time</b> %{x}',
         },
       ]}
-      layout={{ title: 'Displacement of rails', showlegend: true, yaxis: {range: [0, 0.008]} }}
-      config={{ responsive: true }}
+      layout={
+        {
+          title: {
+            text: 'Displacement of rails',
+            font: {
+              family: 'Roboto, sans-serif',
+              size: 18,
+            },
+            xref: 'paper',
+            x: 0.05, 
+          },
+          font: {
+            family: 'Open Sans, sans-serif',
+          },
+          showlegend: true,
+          legend: {'orientation': 'h'},
+          xaxis: {
+            title: 'Time',
+            type: 'date',
+          },
+          yaxis: {
+            range: [0, 0.008],
+          },
+          hovermode: 'closest',
+          hoverlabel: { bgcolor: primaryColor },
+        }
+      }
+      config={
+        {
+          responsive: true,
+          scrollZoom: true,
+          displaylogo: false,
+        }
+      }
       className="plot"
     />
   )
