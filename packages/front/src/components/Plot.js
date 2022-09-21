@@ -47,7 +47,7 @@ const Graph = () => {
           name: 'Displacement',
         },
       ]}
-      layout={{ title: 'Displacement of rails', showlegend: true }}
+      layout={{ title: 'Displacement of rails', showlegend: true, yaxis: {range: [0, 0.008]} }}
       config={{ responsive: true }}
       className="plot"
     />
