@@ -1,15 +1,12 @@
-const express = require('express');
-const app = express();
-const cors = require('cors');
-const measuresRoute = require('./routes/measures');
+import { createServer as createServerHttp } from 'http';
+import { join } from 'path';
+import createServer from './utils/server';
 
-const PORT = process.env.PORT || 5000;
+require('dotenv').config({ path: join(__dirname, '.env') });
 
-// Middleware
-app.use(cors());
-app.use(express.json());
-app.use('/measures', measuresRoute);
+const port = process.env.PORT || 5000;
+const app = createServer();
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+createServerHttp(app).listen(port, () => {
+  console.log(`Server running on http://::${port}.`);
 });
