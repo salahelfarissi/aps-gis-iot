@@ -11,10 +11,12 @@ import ModelViewer from './components/ModelViewer';
 function App() {
   return (
     <Router>
-      <Header />
-      <Container fluid>
+      <Container>
         <Row>
-          <Col>
+          <Header />
+        </Row>
+        <Row>
+          <Col xs={4}>
             <Route path="/" exact component={Plot} />
           </Col>
           <Col xs={8}>
