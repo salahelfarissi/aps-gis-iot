@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../../utils/db');
 const { createMeasure, getAllMeasures, getMeasure, updateMeasure, deleteMeasure} = require('../../controller/measures');
 
 // Routes
