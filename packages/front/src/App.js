@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 // Components
 import About from './components/About';
-import Plot from './components/Plot';
+import ScatterPlot from './components/ScatterPlot';
 import Header from './components/Header';
 import ModelViewer from './components/ModelViewer';
 
@@ -17,7 +17,7 @@ function App() {
         </Row>
         <Row>
           <Col xs={4}>
-            <Route path="/" exact component={Plot} />
+            <Route path="/" exact component={ScatterPlot} />
           </Col>
           <Col xs={8}>
             <Route path="/" exact component={ModelViewer} />

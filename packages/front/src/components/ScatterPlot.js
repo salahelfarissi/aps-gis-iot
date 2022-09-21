@@ -4,7 +4,7 @@ import Plotly from 'plotly.js-strict-dist-min';
 
 const Plot = createPlotlyComponent(Plotly);
 
-const Graph = () => {
+const ScatterPlot = () => {
 
   const [measures, setMeasures] = useState([]);
 
@@ -97,4 +97,4 @@ const Graph = () => {
   )
 }
 
-export default Graph;
+export default ScatterPlot;
