@@ -1,22 +1,23 @@
-const express = require('express');
-const router = express.Router();
-const { createMeasure, getAllMeasures, getMeasure, updateMeasure, deleteMeasure} = require('../../controller/measures');
+import { Router } from 'express';
 
-// Routes
+// Controllers
+import * as controllers from '../../controller/measures';
+
+const router = Router();
 
 // Create a measure
-router.post('/', createMeasure);
+router.post('/', controllers.createMeasure);
 
 // Get all measures
-router.get('/', getAllMeasures);
+router.get('/', controllers.getAllMeasures);
 
 // Get a measure
-router.get('/:id', getMeasure);
+router.get('/:id', controllers.getMeasure);
 
 // Update a measure
-router.put('/:id', updateMeasure);
+router.put('/:id', controllers.updateMeasure);
 
 // Delete a measure
-router.delete('/:id', deleteMeasure);
+router.delete('/:id', controllers.deleteMeasure);
 
 module.exports = router;
