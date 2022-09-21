@@ -38,12 +38,14 @@ const ScatterPlot = () => {
     return { x, y };
   }
 
+  const { x, y } = transformData(measures);
+
   return (
     <Plot
       data={[
         {
-          x: transformData(measures)['x'],
-					y: transformData(measures)['y'],
+          x: x,
+					y: y,
           mode: 'lines+markers',
           type: 'scatter',
           name: 'Displacement',
