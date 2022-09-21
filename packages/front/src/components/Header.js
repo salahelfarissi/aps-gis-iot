@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
   <div>
-    <Navbar expand="sm" className="bg-white">
+    <Navbar expand="sm" className="bg-white" style={{ height: '8vh' }}>
       <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
             <Col className="d-none d-lg-flex justify-content-start">
