@@ -20,4 +20,4 @@ router.put('/:id', controllers.updateMeasure);
 // Delete a measure
 router.delete('/:id', controllers.deleteMeasure);
 
-module.exports = router;
+export default router;

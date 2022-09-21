@@ -1,4 +1,4 @@
-const pool = require('../../utils/db');
+import pool from '../../utils/db';
 
 const createMeasure = async (req, res) => {
   try {
