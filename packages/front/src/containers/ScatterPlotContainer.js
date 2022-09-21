@@ -85,6 +85,7 @@ const ScatterPlotContainer = () => {
     responsive: true,
     scrollZoom: true,
     displaylogo: false,
+    displayModeBar: true,
   }
 
   return <ScatterPlot data={data} layout={layout} config={config}/>;
