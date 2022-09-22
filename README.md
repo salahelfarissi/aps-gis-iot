@@ -13,22 +13,37 @@ A Nodejs app for real-time monitoring of railways.
 - [Babel](https://babeljs.io/)
 - [Sass](https://sass-lang.com/)
 
-## To start using Mesium API
+## API
+
+### Nodemon
 
 ``` shell
 yarn global add nodemon
 ```
 
-## Database
+### Database
+
 Create your database.
+
 ``` sql
 CREATE DATABASE iot;
 ```
+
 Install required tables
+
 ``` shell
 # go to sql folder
 $ cd packages/sql/
 
 # Inject queries
 $ psql -f index.sql
+```
+
+### FROST-Server
+
+``` shell
+# go to api folder
+$ docker-compose -f .\frost-server.yaml up
+
+# Access the server by opening http://localhost:8080/FROST-Server/
 ```
