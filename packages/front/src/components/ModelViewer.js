@@ -1,23 +1,30 @@
 import React from 'react';
 import { Viewer, Entity, PointGraphics, EntityDescription } from 'resium';
-import { Cartesian3, createWorldTerrain, Ion } from 'cesium';
+import PropTypes from 'prop-types';
 
-Ion.defaultAccessToken = process.env.REACT_APP_ACCESS_TOKEN;
-
-const terrainProvider = createWorldTerrain();
-const position = Cartesian3.fromDegrees(2.2851128, 48.8305753, 100);
-
-const ModelViewer = () => (
+export const ModelViewer = ({
+  terrainProvider,
+  position,
+  name,
+  pixelSize,
+  description,
+}) => (
   <Viewer
     terrainProvider={terrainProvider}
     className='cesium-container'>
-    <Entity position={position} name='Ligne 12 (Porte de Versailles)'>
-      <PointGraphics pixelSize={10} />
+    <Entity position={position} name={name}>
+      <PointGraphics pixelSize={pixelSize} />
       <EntityDescription>
-        <h1>Auscultation des ouvrages souterrains</h1>
+        <h1>{description}</h1>
       </EntityDescription>
     </Entity>
   </Viewer>
 )
 
-export default ModelViewer;
+ModelViewer.propTypes = {
+  terrainProvider: PropTypes.object.isRequired,
+  position: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  pixelSize: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+}

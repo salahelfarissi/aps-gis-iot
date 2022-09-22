@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 import About from './components/About';
 import ScatterPlotContainer from './containers/ScatterPlotContainer';
 import Header from './components/Header';
-import ModelViewer from './components/ModelViewer';
+import ModelViewerContainer from './containers/ModelViewerContainer';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path="/" exact component={ScatterPlotContainer} />
           </Col>
           <Col xs={8}>
-            <Route path="/" exact component={ModelViewer} />
+            <Route path="/" exact component={ModelViewerContainer} />
           </Col>
           <Route path="/about" component={About} />
         </Row>
