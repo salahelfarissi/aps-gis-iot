@@ -68,7 +68,7 @@ const ScatterPlotContainer = () => {
       font: {
         family: 'Open Sans, sans-serif',
       },
-      showlegend: true,
+      showlegend: false,
       legend: {'orientation': 'h'},
       xaxis: {
         title: 'Time',
