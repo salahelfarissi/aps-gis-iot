@@ -12,6 +12,7 @@ A Nodejs app for real-time monitoring of railways.
 - [ESLint](https://eslint.org/)
 - [Babel](https://babeljs.io/)
 - [Sass](https://sass-lang.com/)
+- [Docker](https://www.docker.com/)
 
 ## API
 
