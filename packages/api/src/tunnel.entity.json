@@ -1,0 +1,83 @@
+{
+	"name" : "Railway Tunnel",
+  "description" : "Ligne 12 (Porte de Versailles)",
+  "properties" : {
+    "monitoredEntities" : "Railways",
+    "numberOfMonitoredEntities" : 4
+  },
+	"Locations": [
+		{
+			"name": "Location of the Railway Tunnel",
+			"description": "Ligne 12 (Porte de Versailles), Paris, France",
+			"encodingType": "application/vnd.geo+json",
+			"location": {
+				"type": "Point",
+				"coordinates": [2.2851128, 48.8305753]
+			},
+			"properties": {
+				"address": {
+					"streetAddress": "Av. Ernest Renan",
+					"addressLocality": "Paris",
+					"addressCountry": "France"
+				}
+			}
+		}
+	],
+	"Datastreams": [
+		{
+			"name": "Displacement in the Railway Tunnel",
+			"description": "Displassment of the Railway Tunnel, measured usind a total station",
+			"observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+			"unitOfMeasurement": {
+				"name": "Meters",
+				"symbol": "m",
+				"definition": "https://qudt.org/vocab/unit/M#:~:text=The%20meter%20is%20equal%20to,feet%2C%20or%2039.370%20079%20inches.&text=qudt%3AplainTextDescription-,The%20metric%20and%20SI%20base%20unit%20of%20distance.,feet%2C%20or%2039.370%20079%20inches."
+			},
+			"Sensor": {
+				"name": "Total Station",
+				"description": "Topcon MS1AXII",
+				"encodingType": "application/pdf",
+				"metadata": "https://www.topconpositioning.com/sites/default/files/product_files/ms_axii_series_broch_7010_2083_reve_sm.pdf",
+				"properties": {
+					"manufacturer": "Topcon",
+					"model": "MS1AXII",
+					"serialNumber": "1234567890"
+				}
+			},
+			"ObservedProperty": {
+				"name": "Settlement",
+				"definition": "https://en.wikipedia.org/wiki/Settlement_(structural)",
+				"description": "The settlment.",
+				"properties": {
+					"category": "Structural"
+				}
+			},
+			"Observations": [
+				{
+					"phenomenonTime": "2019-03-14T10:00:00Z",
+					"result": 0.003
+				},
+				{
+					"phenomenonTime": "2019-03-14T10:01:00Z",
+					"result": 0.004
+				},
+				{
+					"phenomenonTime": "2019-03-14T10:02:00Z",
+					"result": 0.005
+				},
+				{
+					"phenomenonTime": "2019-03-14T10:03:00Z",
+					"result": 0.004
+				},
+				{
+					"phenomenonTime": "2019-03-14T10:04:00Z",
+					"result": 0.001
+				},
+				{
+					"phenomenonTime": "2019-03-14T10:05:00Z",
+					"result": 0.002
+				}
+			]
+		}
+	]
+}
