@@ -47,4 +47,7 @@ $ psql -f index.sql
 $ docker-compose -f .\frost-server.yaml up
 
 # Access the server by opening http://localhost:8080/FROST-Server/
+
+# Access postgis container
+$ docker exec -ti frost-db psql -U sensorthings
 ```
