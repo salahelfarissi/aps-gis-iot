@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Input, Label, FormGroup, Form } from "reactstrap";
 import ImportButton from "./ImportButton";
 import PropTypes from "prop-types";
+import { styles } from "./ImportStyles";
 
 export default function ImportData({
   url,
@@ -21,7 +22,7 @@ export default function ImportData({
       <Row>
         <Form>
           <FormGroup className="input-group mb-3">
-            <Label for="url" style={{ fontFamily: 'Open Sans, sans-serif', fontStyle: 'italic', marginLeft: 5, marginRight: 7, paddingTop: 7 }}>
+            <Label for="url" style={ styles.labelStyles }>
               URL
             </Label>
             <Input
@@ -29,7 +30,7 @@ export default function ImportData({
               name="url"
               value={url}
               type="text"
-              style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 13 }}
+              style={ styles.inputStyles }
               onChange={handleUrlChange}
             />
             <ImportButton onClick={execute} description={description}/>
@@ -41,7 +42,7 @@ export default function ImportData({
           type="textarea"
           name="content"
           id="data"
-          style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 13, height: 300 }}
+          style={ styles.areaStyles }
           onChange={handleDataChange}
           value={data}
         />
