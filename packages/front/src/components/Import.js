@@ -3,7 +3,7 @@ import { Container, Row, Input, Label, FormGroup, Form, Button } from "reactstra
 
 export default function Import() {
   const [url, setUrl] = useState("http://localhost:8080/FROST-Server/v1.1/Datastreams(1)/Observations");
-  const [data, setData] = useState("2019-03-14T10:08:00.000Z, 0.004");
+  const [data, setData] = useState(`${new Date(Date.now()).toISOString()}, 0.004`);
 
   const handleDataChange = (e) => {
     setData(e.target.value);
@@ -30,7 +30,7 @@ export default function Import() {
   };
 
   const post = (url, data) => {
-    var request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
     request.addEventListener("load", function (e) {
         if (request.readyState === 4) {
             let p = document.createElement('p');
