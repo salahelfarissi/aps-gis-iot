@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Container, Row, Input, Label, FormGroup, Form, Button } from "reactstrap";
 
 export default function Import() {
+  const timestamp = new Date(Date.now()).toISOString(), displacement = Math.floor(Math.random() * 5) + 1;
+
   const [url, setUrl] = useState("http://localhost:8080/FROST-Server/v1.1/Datastreams(1)/Observations");
-  const [data, setData] = useState(`${new Date(Date.now()).toISOString()}, 0.004`);
+  const [data, setData] = useState(`${timestamp}, 0.00${displacement}`);
 
   const handleDataChange = (e) => {
     setData(e.target.value);
