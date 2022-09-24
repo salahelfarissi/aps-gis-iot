@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Container, Row, Input, Label, FormGroup, Form, Button } from "reactstrap";
+import { Container, Row, Input, Label, FormGroup, Form } from "reactstrap";
+import ImportButton from "./ImportButton";
 
 export default function Import() {
   const timestamp = new Date(Date.now()).toISOString(), displacement = Math.floor(Math.random() * 5) + 1;
@@ -77,9 +78,7 @@ export default function Import() {
               style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 13 }}
               onChange={e => setUrl(e.target.value)}
             />
-            <Button color="warning" onClick={() => execute()}>
-              Execute
-            </Button>
+            <ImportButton onClick={execute} />
           </FormGroup>
         </Form>
       </Row>
