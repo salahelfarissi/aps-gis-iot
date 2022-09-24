@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 // Components
 import About from './components/About';
-import Import from './components/Import';
+import ImportDataContainer from './containers/ImportDataContainer';
 import ScatterPlotContainer from './containers/ScatterPlotContainer';
 import Header from './components/Header';
 import ModelViewerContainer from './containers/ModelViewerContainer';
@@ -24,7 +24,7 @@ function App() {
             <Route path="/" exact component={ModelViewerContainer} />
           </Col>
           <Route path="/about" component={About} />
-          <Route path="/import" component={Import} />
+          <Route path="/import" component={ImportDataContainer} />
         </Row>
       </Container>
     </Router>
