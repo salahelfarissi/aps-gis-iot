@@ -27,11 +27,11 @@ export default function ImportDataContainer() {
     for (let i = 0; i < allLines.length; i++) {
       lines = allLines[i].split(",");
       if (lines.length === 2) {
-          let observation = {
-              phenomenonTime: lines[0].trim(),
-              result: lines[1].trim()
-          };
-          post(url, JSON.stringify(observation));
+        let observation = {
+            phenomenonTime: lines[0].trim(),
+            result: lines[1].trim()
+        };
+        post(url, JSON.stringify(observation));
       }
     }
   };
@@ -39,23 +39,21 @@ export default function ImportDataContainer() {
   const post = (url, data) => {
     const request = new XMLHttpRequest();
     request.addEventListener("load", function (e) {
-        if (request.readyState === 4) {
-            let p = document.createElement('p');
-            p.style.color = request.status === 201 ? 'green' : 'red';
-            p.style.fontSize = 'small';
-            if (request.status >= 200 && request.status < 300) {
-                const location = request.getResponseHeader('Location');
-                p.innerText = 'Done: ' + location;
-            } else {
-                p.innerText = 'Error ' + request.status + ": " + request.responseText + "";
-            }
-            document.getElementById('result').appendChild(p);
+      if (request.readyState === 4) {
+        let p = document.createElement('p');
+        if (request.status >= 200 && request.status < 300) {
+            const location = request.getResponseHeader('Location');
+            p.innerText = 'Done: ' + location;
+        } else {
+            p.innerText = 'Error ' + request.status + ": " + request.responseText + "";
         }
+        document.getElementById('result').appendChild(p);
+      }
     });
     request.addEventListener("error", function (e) {
-        let p = document.createElement('p');
-        p.innerText = 'Error: ' + request.statusText;
-        document.getElementById('result').appendChild(p);
+      let p = document.createElement('p');
+      p.innerText = 'Error: ' + request.statusText;
+      document.getElementById('result').appendChild(p);
     });
     request.open('POST', url, true);
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');

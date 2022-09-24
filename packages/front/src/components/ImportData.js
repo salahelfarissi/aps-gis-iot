@@ -45,8 +45,6 @@ export default function ImportData({
           value={data}
         />
       </Row>
-      <div id="result" style={{ marginTop: 10 }}>
-      </div>
     </Container>
   );
 }
