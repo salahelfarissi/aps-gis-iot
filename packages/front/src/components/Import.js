@@ -36,8 +36,10 @@ export default function Import() {
     request.addEventListener("load", function (e) {
         if (request.readyState === 4) {
             let p = document.createElement('p');
+            p.style.color = request.status === 201 ? 'green' : 'red';
+            p.style.fontSize = 'small';
             if (request.status >= 200 && request.status < 300) {
-                let location = request.getResponseHeader('Location');
+                const location = request.getResponseHeader('Location');
                 p.innerText = 'Done: ' + location;
             } else {
                 p.innerText = 'Error ' + request.status + ": " + request.responseText + "";
@@ -91,7 +93,7 @@ export default function Import() {
           value={data}
         />
       </Row>
-      <div id="result">
+      <div id="result" style={{ marginTop: 10 }}>
       </div>
     </Container>
   );
