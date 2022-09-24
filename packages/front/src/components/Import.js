@@ -3,7 +3,7 @@ import { Container, Row, Input, Label, FormGroup, Form, Button } from "reactstra
 
 export default function Import() {
   const [url, setUrl] = useState("http://localhost:8080/FROST-Server/v1.1/Datastreams(1)/Observations");
-  const [data, setData] = useState("2019-03-14T10:07:00.000Z, 0.002");
+  const [data, setData] = useState("2019-03-14T10:08:00.000Z, 0.004");
 
   const handleDataChange = (e) => {
     setData(e.target.value);
@@ -30,7 +30,27 @@ export default function Import() {
   };
 
   const post = (url, data) => {
-    console.log("Posting to " + url + " with data " + data);
+    var request = new XMLHttpRequest();
+    request.addEventListener("load", function (e) {
+        if (request.readyState === 4) {
+            let p = document.createElement('p');
+            if (request.status >= 200 && request.status < 300) {
+                let location = request.getResponseHeader('Location');
+                p.innerText = 'Done: ' + location;
+            } else {
+                p.innerText = 'Error ' + request.status + ": " + request.responseText + "";
+            }
+            document.getElementById('result').appendChild(p);
+        }
+    });
+    request.addEventListener("error", function (e) {
+        let p = document.createElement('p');
+        p.innerText = 'Error: ' + request.statusText;
+        document.getElementById('result').appendChild(p);
+    });
+    request.open('POST', url, true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.send(data);
   };
 
   return (
@@ -70,9 +90,6 @@ export default function Import() {
         />
       </Row>
       <div id="result">
-        <p>
-          Importing to {url}.
-        </p>
       </div>
     </Container>
   );
