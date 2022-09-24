@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Input, Label, FormGroup, Form } from "reactstrap";
 import ImportButton from "./ImportButton";
+import PropTypes from "prop-types";
 
 export default function ImportData({
   url,
@@ -49,3 +50,11 @@ export default function ImportData({
     </Container>
   );
 }
+
+ImportData.propTypes = {
+  url: PropTypes.string.isRequired,
+  handleUrlChange: PropTypes.func.isRequired,
+  execute: PropTypes.func.isRequired,
+  handleDataChange: PropTypes.func.isRequired,
+  data: PropTypes.string.isRequired,
+};
