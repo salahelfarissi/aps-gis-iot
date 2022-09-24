@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Input, Label, FormGroup, Form } from "reactstrap";
-import ImportButton from "./ImportButton";
+import Button from "./Button";
 import PropTypes from "prop-types";
-import { styles } from "./ImportStyles";
+import { styles } from "./styles";
 
 export default function ImportData({
   url,
@@ -33,7 +33,7 @@ export default function ImportData({
               style={ styles.inputStyles }
               onChange={handleUrlChange}
             />
-            <ImportButton onClick={execute} description={description}/>
+            <Button onClick={execute} description={description}/>
           </FormGroup>
         </Form>
       </Row>

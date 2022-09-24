@@ -1,8 +1,7 @@
 import React from "react";
-// import { Button } from "reactstrap";
 import PropTypes from "prop-types";
 
-export default function ImportButton({
+export default function Button({
   onClick,
   description
 }) {
@@ -33,7 +32,7 @@ export default function ImportButton({
   );
 }
 
-ImportButton.propTypes = {
+Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   description: PropTypes.string.isRequired,
 };

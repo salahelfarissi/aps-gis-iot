@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import ImportData from "../components/ImportData";
+import ImportData from "../components/Import";
 
 export default function ImportDataContainer() {
 
