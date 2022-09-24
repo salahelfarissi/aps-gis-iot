@@ -14,16 +14,15 @@ export default function Import() {
   };
 
   const processData = (url, data) => {
-    let allLines = data.split(/\r\n|\n/);
-    console.log(allLines);
+    const allLines = data.split(/\r\n|\n/);
+    let lines = [];
 
     for (let i = 0; i < allLines.length; i++) {
-      setData(allLines[i].split(','));
-      console.log(data.length);
-      if (data.length === 2) {
+      lines = allLines[i].split(",");
+      if (lines.length === 2) {
           let observation = {
-              phenomenonTime: data[0].trim(),
-              result: data[1].trim()
+              phenomenonTime: lines[0].trim(),
+              result: lines[1].trim()
           };
           post(url, JSON.stringify(observation));
       }
