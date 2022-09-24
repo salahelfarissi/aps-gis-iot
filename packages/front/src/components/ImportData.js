@@ -9,6 +9,7 @@ export default function ImportData({
   execute,
   handleDataChange,
   data,
+  description
 }) {
   
   return (
@@ -31,7 +32,7 @@ export default function ImportData({
               style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 13 }}
               onChange={handleUrlChange}
             />
-            <ImportButton onClick={execute} />
+            <ImportButton onClick={execute} description={description}/>
           </FormGroup>
         </Form>
       </Row>
@@ -55,4 +56,5 @@ ImportData.propTypes = {
   execute: PropTypes.func.isRequired,
   handleDataChange: PropTypes.func.isRequired,
   data: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };

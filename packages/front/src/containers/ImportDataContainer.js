@@ -7,6 +7,7 @@ export default function ImportDataContainer() {
 
   const [url, setUrl] = useState("http://localhost:8080/FROST-Server/v1.1/Datastreams(1)/Observations");
   const [data, setData] = useState(`${timestamp}, 0.00${displacement}`);
+  const [description, setDescription] = useState("");
 
   const handleDataChange = (e) => {
     setData(e.target.value);
@@ -40,20 +41,16 @@ export default function ImportDataContainer() {
     const request = new XMLHttpRequest();
     request.addEventListener("load", function (e) {
       if (request.readyState === 4) {
-        let p = document.createElement('p');
         if (request.status >= 200 && request.status < 300) {
             const location = request.getResponseHeader('Location');
-            p.innerText = 'Done: ' + location;
+            setDescription('Done: ' + location);
         } else {
-            p.innerText = 'Error ' + request.status + ": " + request.responseText + "";
+            setDescription('Error ' + request.status + ": " + request.responseText + "");
         }
-        document.getElementById('result').appendChild(p);
       }
     });
     request.addEventListener("error", function (e) {
-      let p = document.createElement('p');
-      p.innerText = 'Error: ' + request.statusText;
-      document.getElementById('result').appendChild(p);
+      setDescription('Error: ' + request.statusText);
     });
     request.open('POST', url, true);
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
@@ -66,6 +63,7 @@ export default function ImportDataContainer() {
       handleUrlChange={handleUrlChange}
       execute={execute}
       handleDataChange={handleDataChange}
-      data={data}/>
+      data={data}
+      description={description}/>
   );
 }
