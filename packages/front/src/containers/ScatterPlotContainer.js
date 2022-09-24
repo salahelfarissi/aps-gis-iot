@@ -20,7 +20,7 @@ const ScatterPlotContainer = () => {
 
   useEffect(() => {
     getMeasures();
-  }, []);
+  }, [measures]);
 
   const transformData = (data) => {
     const x = [];
