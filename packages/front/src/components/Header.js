@@ -38,6 +38,10 @@ const Header = () => {
                   <NavLink tag={Link} className="font-weight-bold" to="/">Home</NavLink>
                 </NavItem>
 
+                <NavItem className="d-flex align-items-center">
+                  <NavLink tag={Link} className="font-weight-bold" to="/import">Import</NavLink>
+                </NavItem>
+
               </Nav>
             </Col>
 

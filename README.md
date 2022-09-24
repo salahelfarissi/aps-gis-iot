@@ -27,7 +27,7 @@ yarn global add nodemon
 Create your database.
 
 ``` sql
-CREATE DATABASE iot;
+CREATE DATABASE sensorthings;
 ```
 
 Install required tables
@@ -40,7 +40,7 @@ $ cd packages/sql/
 $ psql -f index.sql
 ```
 
-### FROST-Server
+## FROST-Server
 
 ``` shell
 # go to api folder
