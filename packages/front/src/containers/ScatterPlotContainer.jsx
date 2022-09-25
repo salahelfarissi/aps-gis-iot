@@ -6,10 +6,10 @@ const ScatterPlotContainer = () => {
 
   const getMeasures = async () => {
     try {
-      const response = await fetch('http://localhost:8080/FROST-Server/v1.0/Datastreams(1)/Observations');
+      const response = await fetch('http://localhost:5000/api/measures');
       const jsonData = await response.json();
 
-      setMeasures(jsonData.value);
+      setMeasures(jsonData);
     } catch (error) {
       console.error(error.message);
     }
@@ -27,8 +27,8 @@ const ScatterPlotContainer = () => {
     const y = [];
 
     data.forEach((measure) => {
-      x.push(measure.phenomenonTime);
-      y.push(measure.result);
+      x.push(measure.timestamp);
+      y.push(measure.displacement);
     });
 
     return { x, y };

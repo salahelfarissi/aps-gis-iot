@@ -18,7 +18,7 @@ export default function createServer() {
     }
   });
 
-  app.use('/', routes);
+  app.use('/api', routes);
 
   app.use(express.static('public'));
 

@@ -8,6 +8,7 @@ import ImportDataContainer from './containers/ImportDataContainer';
 import ScatterPlotContainer from './containers/ScatterPlotContainer';
 import Header from './components/Header';
 import ModelViewerContainer from './containers/ModelViewerContainer';
+import Forge from './components/Forge';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           </Col>
           <Route path="/about" component={About} />
           <Route path="/import" component={ImportDataContainer} />
+          <Route path="/forge/oauth" component={Forge} />
         </Row>
       </Container>
     </Router>
