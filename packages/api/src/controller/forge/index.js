@@ -1,20 +1,45 @@
 const axios = require('axios').default;
 
-const oauth = async (req, res) => {
+const { getPublicToken } = require('../../middleware/oauth');
+
+const oauth = async (req, res, next) => {
   try {
-    const response = await axios.post(
-      'https://developer.api.autodesk.com/authentication/v1/authenticate', 
-      new URLSearchParams({
-        client_id: process.env.FORGE_CLIENT_ID,
-        client_secret: process.env.FORGE_CLIENT_SECRET,
-        grant_type: 'client_credentials',
-        scope: 'data:read data:write',
-      })
-    )
-    res.json(response.data.access_token);
+    const token = await getPublicToken();
+    res.json({
+        access_token: token.access_token,
+        expires_in: token.expires_in
+    });
   } catch (err) {
-    console.error(err.message);
+      next(err);
   }
 }
 
-module.exports = oauth;
+const oss = async (req, res) => {
+  try {
+    const response = await axios.post(
+      'https://developer.api.autodesk.com/oss/v2/buckets',
+      JSON.stringify({
+        'bucketKey': bucketKey,
+        'policyKey': policyKey
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + access_token,
+        },
+      }
+    );
+    res.json(response.data);
+  } catch (err) {
+    console.error(err.message);
+    res.send('Failed to create a new bucket');
+  }
+}
+
+const modelderivative = async (req, res) => {}
+
+module.exports = {
+  oauth,
+  oss,
+  modelderivative,
+}
