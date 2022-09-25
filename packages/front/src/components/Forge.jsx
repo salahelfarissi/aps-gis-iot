@@ -5,7 +5,7 @@ const Forge = () => {
 
   const getAccessToken = async () => {
     try {
-      const response = await fetch('http://localhost:5000/forge');
+      const response = await fetch('http://localhost:5000/forge/oauth');
       const jsonData = await response.json();
 
       setToken(jsonData);

@@ -6,6 +6,6 @@ import oauth from '../../controller/forge';
 const router = Router();
 
 // Get access token
-router.get('/', oauth);
+router.get('/oauth', oauth);
 
 export default router;

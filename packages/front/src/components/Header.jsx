@@ -43,7 +43,7 @@ const Header = () => {
                 </NavItem>
 
                 <NavItem className="d-flex align-items-center">
-                  <NavLink tag={Link} className="font-weight-bold" to="/forge">Forge</NavLink>
+                  <NavLink tag={Link} className="font-weight-bold" to="/forge/oauth">Forge</NavLink>
                 </NavItem>
 
               </Nav>
