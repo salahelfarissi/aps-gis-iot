@@ -11,6 +11,7 @@
     "bootstrap": "5.2.1",
     "cesium": "^1.97.0",
     "craco-cesium": "^1.2.0",
+    "forge-dataviz-iot-react-components": "^0.1.17",
     "jquery": "^3.6.1",
     "plotly.js": "^2.14.0",
     "plotly.js-strict-dist-min": "^2.14.0",
