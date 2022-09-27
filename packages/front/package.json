@@ -1,13 +1,25 @@
 {
-  "name": "client",
+  "name": "cesium-forge-dataviz-iot-reference-app",
   "version": "0.1.0",
+  "description": "Cesium Forge DataViz IoT Reference App",
   "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/salahelfarissi/cesium-gis-iot.git"
+  },
+  "author": "Salaheddine EL FARISSI",
+  "license": "MIT",
   "dependencies": {
     "@craco/craco": "^6.4.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
     "bootstrap": "5.2.1",
     "cesium": "^1.97.0",
     "craco-cesium": "^1.2.0",
@@ -15,19 +27,13 @@
     "plotly.js-strict-dist-min": "^2.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-forge-viewer": "^0.3.3",
     "react-plotly.js": "^2.6.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.4",
     "resium": "^1.15.1",
-    "sass": "^1.54.9",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+    "sass": "^1.54.9"
   },
   "eslintConfig": {
     "extends": [

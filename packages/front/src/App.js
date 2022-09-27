@@ -26,9 +26,9 @@ function App() {
           </Col>
           <Route path="/about" component={About} />
           <Route path="/import" component={ImportDataContainer} />
-          <Route path="/forge/oauth" component={Forge} />
         </Row>
       </Container>
+      <Route path="/forge/oauth" component={Forge} />
     </Router>
   );
 }
