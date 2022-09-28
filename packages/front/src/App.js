@@ -17,7 +17,7 @@ function App() {
       <Container fluid>
         <Row>
           <Col>
-            <Route path="/" component={Forge} />
+            <Route path="/" exact component={Forge} />
           </Col>
           <Col>
             <Route path="/" exact component={ModelViewerContainer} />
