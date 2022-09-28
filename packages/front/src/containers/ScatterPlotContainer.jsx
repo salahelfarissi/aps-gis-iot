@@ -79,6 +79,15 @@ const ScatterPlotContainer = () => {
       },
       hovermode: 'closest',
       hoverlabel: { bgcolor: primaryColor },
+      // height: 300,
+      margin: {
+        l: 50,
+        r: 50,
+        b: 150,
+        t: 100,
+        pad: 4
+      },
+      autosize: true,
     }
 
   const config = {
@@ -88,7 +97,7 @@ const ScatterPlotContainer = () => {
     displayModeBar: true,
   }
 
-  return <ScatterPlot data={data} layout={layout} config={config}/>;
+  return <ScatterPlot data={data} layout={layout} config={config} />;
 }
 
 export default ScatterPlotContainer;

@@ -21,7 +21,7 @@ const Header = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-  <div>
+  <div className='container'>
     <Navbar expand="sm" className="bg-white" style={{ height: '8vh' }}>
       <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -40,10 +40,6 @@ const Header = () => {
 
                 <NavItem className="d-flex align-items-center">
                   <NavLink tag={Link} className="font-weight-bold" to="/import">Import</NavLink>
-                </NavItem>
-
-                <NavItem className="d-flex align-items-center">
-                  <NavLink tag={Link} className="font-weight-bold" to="/forge/oauth">Forge</NavLink>
                 </NavItem>
 
               </Nav>
