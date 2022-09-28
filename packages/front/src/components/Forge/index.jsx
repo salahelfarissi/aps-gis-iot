@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ForgeViewer from 'react-forge-viewer';
-import './App.css';
  
 class App extends Component {
  
