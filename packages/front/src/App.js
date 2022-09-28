@@ -25,7 +25,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/import" component={ImportDataContainer} />
         </Row>
-        <Row>
+        <Row style={{ height: '40vh' }}>
           <Route path="/" exact component={ScatterPlotContainer} />
         </Row>
       </Container>
