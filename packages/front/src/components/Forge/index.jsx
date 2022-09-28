@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ForgeViewer from 'react-forge-viewer';
+import { styles } from "./styles";
  
 class App extends Component {
  
@@ -66,7 +67,7 @@ class App extends Component {
  
   render() {
     return (
-      <div className="App">
+      <div className="App" styles={ styles.appStyles }>
         <ForgeViewer
           version="6.0"
           urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGZlLmJ1Y2tldC90dW5uZWwucnZ0"
@@ -78,6 +79,7 @@ class App extends Component {
           onDocumentError={this.handleDocumentError.bind(this)}
           onModelLoad={this.handleModelLoaded.bind(this)}
           onModelError={this.handleModelError.bind(this)}
+          styles={ styles.viewerStyles }
         />
       </div>
     );
