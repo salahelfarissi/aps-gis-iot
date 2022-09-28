@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ForgeViewer from 'react-forge-viewer';
+import { Container, Row, Col } from 'reactstrap';
  
 class App extends Component {
  
@@ -66,20 +67,26 @@ class App extends Component {
  
   render() {
     return (
-      <div className="App">
-        <ForgeViewer
-          version="6.0"
-          urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGZlLmJ1Y2tldC90dW5uZWwucnZ0"
-          view={this.state.view}
-          headless={false}
-          onViewerError={this.handleViewerError.bind(this)}
-          onTokenRequest={this.handleTokenRequested.bind(this)}
-          onDocumentLoad={this.handleDocumentLoaded.bind(this)}
-          onDocumentError={this.handleDocumentError.bind(this)}
-          onModelLoad={this.handleModelLoaded.bind(this)}
-          onModelError={this.handleModelError.bind(this)}
-        />
-      </div>
+      <Container>
+        <Row>
+          <Col>
+            <div>
+              <ForgeViewer
+                version="6.0"
+                urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGZlLmJ1Y2tldC90dW5uZWwucnZ0"
+                view={this.state.view}
+                headless={false}
+                onViewerError={this.handleViewerError.bind(this)}
+                onTokenRequest={this.handleTokenRequested.bind(this)}
+                onDocumentLoad={this.handleDocumentLoaded.bind(this)}
+                onDocumentError={this.handleDocumentError.bind(this)}
+                onModelLoad={this.handleModelLoaded.bind(this)}
+                onModelError={this.handleModelError.bind(this)}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

@@ -13,22 +13,22 @@ import Forge from './components/Forge';
 function App() {
   return (
     <Router>
-      <Container>
+      <Header />
+      <Container fluid>
         <Row>
-          <Header />
-        </Row>
-        <Row>
-          <Col xs={4}>
-            <Route path="/" exact component={ScatterPlotContainer} />
+          <Col>
+            <Route path="/" component={Forge} />
           </Col>
-          <Col xs={8}>
+          <Col>
             <Route path="/" exact component={ModelViewerContainer} />
           </Col>
           <Route path="/about" component={About} />
           <Route path="/import" component={ImportDataContainer} />
         </Row>
+        <Row>
+          <Route path="/" exact component={ScatterPlotContainer} />
+        </Row>
       </Container>
-      <Route path="/forge/oauth" component={Forge} />
     </Router>
   );
 }
