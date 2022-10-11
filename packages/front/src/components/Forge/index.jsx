@@ -1,70 +1,66 @@
-import React, { Component } from 'react';
-import ForgeViewer from 'react-forge-viewer';
-import { Container, Row, Col } from 'reactstrap';
- 
+import React, { Component } from "react";
+import ForgeViewer from "react-forge-viewer";
+import { Container, Row, Col } from "reactstrap";
+
 class App extends Component {
- 
-  constructor(props){
+  constructor(props) {
     super(props);
- 
+
     this.state = {
-      view:null
-    }
+      view: null,
+    };
   }
- 
-  handleViewerError(error){
-    console.log('Error loading viewer.');
+
+  handleViewerError(error) {
+    console.log("Error loading viewer.");
   }
- 
+
   /* after the viewer loads a document, we need to select which viewable to
   display in our component */
-  handleDocumentLoaded(doc, viewables){
+  handleDocumentLoaded(doc, viewables) {
     if (viewables.length === 0) {
-      console.error('Document contains no viewables.');
-    }
-    else{
+      console.error("Document contains no viewables.");
+    } else {
       //Select the first viewable in the list to use in our viewer component
-      this.setState({view:viewables[0]});
+      this.setState({ view: viewables[0] });
     }
   }
- 
-  handleDocumentError(viewer, error){
-    console.log('Error loading a document');
+
+  handleDocumentError(viewer, error) {
+    console.log("Error loading a document");
   }
- 
-  handleModelLoaded(viewer, model){
-    console.log('Loaded model:', model);
+
+  handleModelLoaded(viewer, model) {
+    console.log("Loaded model:", model);
   }
- 
-  handleModelError(viewer, error){
-    console.log('Error loading the model.');
+
+  handleModelError(viewer, error) {
+    console.log("Error loading the model.");
   }
- 
-  getForgeToken(){
+
+  getForgeToken() {
     let token = null;
 
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:5000/api/forge/oauth/token', false);
+    xhr.open("GET", "http://localhost:5000/api/forge/oauth/token", false);
     xhr.send(null);
     if (xhr.status === 200) {
       token = JSON.parse(xhr.responseText);
     }
     return token;
   }
- 
+
   /* Once the viewer has initialized, it will ask us for a forge token so it can
   access the specified document. */
-  handleTokenRequested(onAccessToken){
-    console.log('Token requested by the viewer.');
-    if(onAccessToken){
+  handleTokenRequested(onAccessToken) {
+    console.log("Token requested by the viewer.");
+    if (onAccessToken) {
       let token = this.getForgeToken();
       console.log(token);
-      if(token)
-        onAccessToken(
-          token.access_token, token.expires_in);
+      if (token) onAccessToken(token.access_token, token.expires_in);
     }
   }
- 
+
   render() {
     return (
       <Container>
@@ -90,5 +86,5 @@ class App extends Component {
     );
   }
 }
- 
+
 export default App;
