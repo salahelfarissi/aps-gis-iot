@@ -13,6 +13,9 @@ import {
 } from "reactstrap";
 
 import avatar from "../assets/avatar.png";
+import avatar_neh from "../assets/neh.png";
+import avatar_rey from "../assets/rey.png";
+
 import logo from "../assets/logo.png";
 
 const Header = () => {
@@ -31,6 +34,32 @@ const Header = () => {
                 <NavLink className="font-weight-bold" to="/">
                   <img
                     src={avatar}
+                    alt="avatar"
+                    className="img-fluid rounded-circle"
+                    style={{ width: 36 }}
+                  />
+                </NavLink>
+              </NavItem>
+              <NavItem
+                className="d-flex align-items-center"
+                style={{ marginLeft: -28 }}
+              >
+                <NavLink className="font-weight-bold" to="/">
+                  <img
+                    src={avatar_neh}
+                    alt="avatar"
+                    className="img-fluid rounded-circle"
+                    style={{ width: 36 }}
+                  />
+                </NavLink>
+              </NavItem>
+              <NavItem
+                className="d-flex align-items-center"
+                style={{ marginLeft: -28 }}
+              >
+                <NavLink className="font-weight-bold" to="/">
+                  <img
+                    src={avatar_rey}
                     alt="avatar"
                     className="img-fluid rounded-circle"
                     style={{ width: 36 }}
@@ -56,7 +85,7 @@ const Header = () => {
             <NavbarBrand
               className="d-inline-block p-0"
               to="/"
-              style={{ width: 90 }}
+              style={{ width: 120 }}
             >
               <img
                 src={logo}
