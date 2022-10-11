@@ -78,6 +78,12 @@ const Header = () => {
                   Import
                 </NavLink>
               </NavItem>
+
+              <NavItem className="d-flex align-items-center">
+                <NavLink tag={Link} className="font-weight-bold" to="/map">
+                  Map
+                </NavLink>
+              </NavItem>
             </Nav>
           </Col>
 
