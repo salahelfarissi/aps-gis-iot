@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   Col,
@@ -9,11 +9,11 @@ import {
   NavLink,
   NavItem,
   NavbarBrand,
-  Collapse
-} from 'reactstrap';
+  Collapse,
+} from "reactstrap";
 
-import avatar from '../assets/avatar.png';
-import logo from '../assets/logo.png';
+import avatar from "../assets/avatar.png";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,47 +21,64 @@ const Header = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-  <div className='container'>
-    <Navbar expand="sm" className="bg-white" style={{ height: '8vh' }}>
-      <NavbarToggler onClick={toggle} />
+    <div className="container">
+      <Navbar expand="sm" className="bg-white" style={{ height: "8vh" }}>
+        <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-            <Col className="d-none d-lg-flex justify-content-start">
-              <Nav className="me-auto" navbar>
+          <Col className="d-none d-lg-flex justify-content-start">
+            <Nav className="me-auto" navbar>
+              <NavItem className="d-flex align-items-center">
+                <NavLink className="font-weight-bold" to="/">
+                  <img
+                    src={avatar}
+                    alt="avatar"
+                    className="img-fluid rounded-circle"
+                    style={{ width: 36 }}
+                  />
+                </NavLink>
+              </NavItem>
 
-                <NavItem className="d-flex align-items-center">
-                  <NavLink className="font-weight-bold" to="/">
-                    <img src={avatar} alt="avatar" className="img-fluid rounded-circle" style={{ width: 36 }} />
-                  </NavLink>
-                </NavItem>
+              <NavItem className="d-flex align-items-center">
+                <NavLink tag={Link} className="font-weight-bold" to="/">
+                  Home
+                </NavLink>
+              </NavItem>
 
-                <NavItem className="d-flex align-items-center">
-                  <NavLink tag={Link} className="font-weight-bold" to="/">Home</NavLink>
-                </NavItem>
+              <NavItem className="d-flex align-items-center">
+                <NavLink tag={Link} className="font-weight-bold" to="/import">
+                  Import
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Col>
 
-                <NavItem className="d-flex align-items-center">
-                  <NavLink tag={Link} className="font-weight-bold" to="/import">Import</NavLink>
-                </NavItem>
+          <Col className="d-flex justify-content-xs-start justify-content-lg-center">
+            <NavbarBrand
+              className="d-inline-block p-0"
+              to="/"
+              style={{ width: 90 }}
+            >
+              <img
+                src={logo}
+                alt="logo"
+                className="position-relative img-fluid"
+              />
+            </NavbarBrand>
+          </Col>
 
-              </Nav>
-            </Col>
-
-            <Col className="d-flex justify-content-xs-start justify-content-lg-center">
-              <NavbarBrand className="d-inline-block p-0" to="/" style={{ width: 90 }}>
-                <img src={logo} alt="logo" className="position-relative img-fluid" />
-              </NavbarBrand>
-            </Col>
-
-            <Col className="d-none d-lg-flex justify-content-end">
-              <Nav className="mrx-auto" navbar>
-                <NavItem className="d-flex align-items-center">
-                  <NavLink tag={Link} className="font-weight-bold" to="/about">About</NavLink>
-                </NavItem>
-              </Nav>
-            </Col>
+          <Col className="d-none d-lg-flex justify-content-end">
+            <Nav className="mrx-auto" navbar>
+              <NavItem className="d-flex align-items-center">
+                <NavLink tag={Link} className="font-weight-bold" to="/about">
+                  About
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Col>
         </Collapse>
-    </Navbar>
-  </div>
-);
-  }
+      </Navbar>
+    </div>
+  );
+};
 
 export default Header;
