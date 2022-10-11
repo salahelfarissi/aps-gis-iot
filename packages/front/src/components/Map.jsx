@@ -1,41 +1,78 @@
-import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import axios from "axios";
+import React, { useEffect, useRef } from "react";
+import L from "leaflet";
 
 const Map = () => {
-  const [data, setData] = useState([]);
+  // Create the map ref:
+  const mapRef = useRef(null);
+  // Create the tile ref:
+  const tileRef = useRef(null);
+
+  // Create our map tile layer:
+  tileRef.current = L.tileLayer(
+    `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`,
+    {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }
+  );
+
+  // Define the styles that are to be passed to the map instance:
+  const mapStyles = {
+    overflow: "hidden",
+    width: "100%",
+    height: "52vh",
+  };
+
+  // Define an object literal with params that will be passed to the map:
+  // const mapParams = {
+  //   center: [37.0902, -95.7129],
+  //   zoom: 3,
+  //   zoomControl: false,
+  //   maxBounds: L.latLngBounds(L.latLng(-150, -240), L.latLng(150, 240)),
+  //   layers: [tileRef.current],
+  // };
+
+  // This useEffect hook runs when the component is first mounted,
+  // similar to componentDidMount() lifecycle method of class-based
+  // components:
+  useEffect(() => {
+    mapRef.current = L.map("map", {
+      center: [37.0902, -95.7129],
+      zoom: 3,
+      zoomControl: false,
+      maxBounds: L.latLngBounds(L.latLng(-150, -240), L.latLng(150, 240)),
+      layers: [tileRef.current],
+    });
+  }, []);
+
+  // Add controls:
+  useEffect(() => {
+    // Pass a baseLayers object to the layer control:
+    L.control
+      .layers({
+        OpenStreetMap: tileRef.current,
+      })
+      .addTo(mapRef.current); // Add the control to our map instance
+
+    // Create the zoom control:
+    L.control
+      .zoom({
+        position: "topright",
+      })
+      .addTo(mapRef.current); // Add the control to our map instance
+  }, []);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/FROST-Server/v1.1/Things(3)/Locations")
-      .then((res) => {
-        setData(res.data.value);
-      })
-      .catch((err) => console.log(err));
-  });
+    // Use mapRef.current to add map event listeners to
+    // our map instance:
+    mapRef.current.on("zoomstart", () => {
+      console.log("ZOOM STARTED");
+    });
+  }, []);
 
   return (
     <>
-      <MapContainer
-        center={[48.8305753, 2.2851128]}
-        zoom={13}
-        scrollWheelZoom={true}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-
-        {data.map((item) => (
-          <Marker
-            key={item.properties.localId}
-            position={[
-              item.location.coordinates[1],
-              item.location.coordinates[0],
-            ]}
-          />
-        ))}
-      </MapContainer>
+      <div id="map" style={mapStyles}></div>
     </>
   );
 };
