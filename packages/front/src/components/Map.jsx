@@ -24,17 +24,6 @@ const Map = () => {
   };
 
   // Define an object literal with params that will be passed to the map:
-  // const mapParams = {
-  //   center: [37.0902, -95.7129],
-  //   zoom: 3,
-  //   zoomControl: false,
-  //   maxBounds: L.latLngBounds(L.latLng(-150, -240), L.latLng(150, 240)),
-  //   layers: [tileRef.current],
-  // };
-
-  // This useEffect hook runs when the component is first mounted,
-  // similar to componentDidMount() lifecycle method of class-based
-  // components:
   useEffect(() => {
     mapRef.current = L.map("map", {
       center: [37.0902, -95.7129],
