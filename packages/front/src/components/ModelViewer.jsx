@@ -1,5 +1,11 @@
 import React from "react";
-import { Viewer, Entity, PointGraphics, EntityDescription } from "resium";
+import {
+  Viewer,
+  Entity,
+  PointGraphics,
+  EntityDescription,
+  CameraFlyTo,
+} from "resium";
 import PropTypes from "prop-types";
 
 export const ModelViewer = ({
@@ -23,6 +29,14 @@ export const ModelViewer = ({
     timeline={false}
     className="cesium-container"
   >
+    <CameraFlyTo
+      destination={position}
+      duration={5}
+      orientation={{
+        heading: 0,
+        pitch: -Math.PI / 6,
+      }}
+    />
     <Entity position={position} name={name}>
       <PointGraphics pixelSize={pixelSize} />
       <EntityDescription>
