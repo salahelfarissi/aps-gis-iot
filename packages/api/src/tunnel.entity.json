@@ -1,9 +1,10 @@
 {
-	"name" : "Railway Tunnel",
+	"name" : "Railroad Tunnel",
   "description" : "Ligne 12 (Porte de Versailles)",
   "properties" : {
     "monitoredEntities" : "Railways",
-    "numberOfMonitoredEntities" : 4
+    "numberOfMonitoredEntities" : 4,
+		"localId" : "1"
   },
 	"Locations": [
 		{
@@ -19,7 +20,8 @@
 					"streetAddress": "Av. Ernest Renan",
 					"addressLocality": "Paris",
 					"addressCountry": "France"
-				}
+				},
+				"localId": "1"
 			}
 		}
 	],

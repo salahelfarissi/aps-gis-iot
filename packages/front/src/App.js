@@ -9,6 +9,7 @@ import ScatterPlotContainer from './containers/ScatterPlotContainer';
 import Header from './components/Header';
 import ModelViewerContainer from './containers/ModelViewerContainer';
 import Forge from './components/Forge';
+import Map from './components/Map';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Route path="/about" component={About} />
       <Route path="/import" component={ImportDataContainer} />
+      <Route path="/map" component={Map} />
       <Container fluid>
         <Row>
           <Col>
