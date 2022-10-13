@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 const Map = () => {
@@ -36,13 +37,6 @@ const Map = () => {
 
   // Add controls:
   useEffect(() => {
-    // Pass a baseLayers object to the layer control:
-    L.control
-      .layers({
-        OpenStreetMap: tileRef.current,
-      })
-      .addTo(mapRef.current); // Add the control to our map instance
-
     // Create the zoom control:
     L.control
       .zoom({
