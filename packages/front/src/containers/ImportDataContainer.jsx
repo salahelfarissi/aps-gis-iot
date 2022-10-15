@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ImportData from "../components/Import";
 
 export default function ImportDataContainer() {
+  const timestamp = new Date(Date.now()).toISOString(),
+    displacement = Math.floor(Math.random() * 5) + 1;
 
-  const timestamp = new Date(Date.now()).toISOString(), displacement = Math.floor(Math.random() * 5) + 1;
-
-  const [url, setUrl] = useState("http://localhost:8080/FROST-Server/v1.1/Datastreams(1)/Observations");
+  const [url, setUrl] = useState(
+    "http://localhost:8080/FROST-Server/v1.1/Datastreams(3)/Observations"
+  );
   const [data, setData] = useState(`${timestamp}, 0.00${displacement}`);
   const [description, setDescription] = useState("");
 
@@ -29,8 +31,8 @@ export default function ImportDataContainer() {
       lines = allLines[i].split(",");
       if (lines.length === 2) {
         let observation = {
-            phenomenonTime: lines[0].trim(),
-            result: lines[1].trim()
+          phenomenonTime: lines[0].trim(),
+          result: lines[1].trim(),
         };
         post(url, JSON.stringify(observation));
       }
@@ -42,18 +44,20 @@ export default function ImportDataContainer() {
     request.addEventListener("load", function (e) {
       if (request.readyState === 4) {
         if (request.status >= 200 && request.status < 300) {
-            const location = request.getResponseHeader('Location');
-            setDescription('Done: ' + location);
+          const location = request.getResponseHeader("Location");
+          setDescription("Done: " + location);
         } else {
-            setDescription('Error ' + request.status + ": " + request.responseText + "");
+          setDescription(
+            "Error " + request.status + ": " + request.responseText + ""
+          );
         }
       }
     });
     request.addEventListener("error", function (e) {
-      setDescription('Error: ' + request.statusText);
+      setDescription("Error: " + request.statusText);
     });
-    request.open('POST', url, true);
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     request.send(data);
   };
 
@@ -64,6 +68,7 @@ export default function ImportDataContainer() {
       execute={execute}
       handleDataChange={handleDataChange}
       data={data}
-      description={description}/>
+      description={description}
+    />
   );
 }
