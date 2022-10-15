@@ -25,3 +25,14 @@ $ docker-compose -f .\frost-server.yaml up
 # Access postgis container using CLI
 $ docker exec -ti frost-db psql -U sensorthings
 ```
+
+## Forge Dataviz
+
+``` shell
+# go to forge folder
+yarn
+yarn run dev
+
+# view the reference application
+http://localhost:9000
+```
