@@ -38,7 +38,8 @@
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.4",
     "resium": "^1.15.1",
-    "sass": "^1.54.9"
+    "sass": "^1.54.9",
+    "sta-map": "^1.8.1"
   },
   "eslintConfig": {
     "extends": [
