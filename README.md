@@ -23,7 +23,7 @@ $ docker-compose -f .\frost-server.yaml up
 # Username: sensorthings
 
 # Access postgis container using CLI
-$ docker exec -ti frost-db psql -U sensorthings
+$ docker exec -ti frost-db-container psql -U sensorthings
 ```
 
 ## Forge Dataviz
