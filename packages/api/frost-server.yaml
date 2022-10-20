@@ -21,7 +21,7 @@ services:
 
   database:
     container_name: frost-db-container
-    image: postgis/postgis:14-3.3-alpine
+    image: timescale/timescaledb-ha:pg14-latest
     restart: always
     environment:
       - POSTGRES_DB=sensorthings
