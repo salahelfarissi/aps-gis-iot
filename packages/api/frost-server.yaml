@@ -21,7 +21,7 @@ services:
 
   database:
     container_name: frost-db-container
-    image: postgis/postgis:14-3.2-alpine
+    image: postgis/postgis:14-3.3-alpine
     restart: always
     environment:
       - POSTGRES_DB=sensorthings
