@@ -26,6 +26,11 @@ $ docker-compose -f frost-server.yaml up
 $ docker exec -ti frost-db-container psql -U sensorthings
 ```
 
+``` sql
+-- Add PostGIS
+$ CREATE EXTENSION postgis;
+```
+
 ## Forge Dataviz
 
 ``` shell
