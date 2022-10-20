@@ -15,7 +15,7 @@ A React app for real-time monitoring of railways.
 # go to api folder
 # Modify email and password / pgAdmin 4
 # Run docker-compose
-$ docker-compose -f .\frost-server.yaml up
+$ docker-compose -f frost-server.yaml up
 
 # Access pgAdmin 4 container http://localhost:9090/
 # Add new server 
