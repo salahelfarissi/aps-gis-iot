@@ -7,7 +7,7 @@ const ScatterPlotContainer = () => {
   const getMeasures = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8080/FROST-Server/v1.1/Datastreams(3)/Observations"
+        "http://localhost:8080/FROST-Server/v1.1/Datastreams(1)/Observations"
       );
       const jsonData = await response.json();
 
