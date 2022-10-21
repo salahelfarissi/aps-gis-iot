@@ -6,7 +6,8 @@ import requests
 df = pd.DataFrame(columns=['result'])
 
 # Add random values to the dataframe
-for i in range (0, 10):
+num_rows = 100
+for i in range (0, num_rows):
   data = pd.DataFrame({'result': [np.random.randint(1, 6, 1)[0] / 1000]})
   df = pd.concat([df, data], ignore_index=True)
 
