@@ -29,6 +29,9 @@ $ docker exec -ti frost-db-container psql -U sensorthings
 ``` sql
 -- Add PostGIS
 $ CREATE EXTENSION postgis;
+
+-- Empty Data
+$ TRUNCATE "THINGS" RESTART IDENTITY CASCADE;
 ```
 
 ## Forge Dataviz
