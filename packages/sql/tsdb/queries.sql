@@ -24,3 +24,16 @@ ORDER BY day DESC;
 
 -- Inspect details about a continuous aggregate
 SELECT * FROM timescaledb_information.continuous_aggregates;
+
+-- Continuous aggregate policies
+SELECT add_continuous_aggregate_policy('observations_daily',
+  start_offset => INTERVAL '3 days',
+  end_offset => INTERVAL '1 hour',
+  schedule_interval => INTERVAL '1 days');
+
+-- Manuel refresh
+CALL refresh_continuous_aggregate(
+  'observations_daily',
+  now() - INTERVAL '1 week',
+  now()
+);
