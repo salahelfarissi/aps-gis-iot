@@ -69,7 +69,7 @@ class App extends Component {
             <div>
               <ForgeViewer
                 version="6.0"
-                urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGZlLmJ1Y2tldC90dW5uZWwucnZ0"
+                urn="dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dHVubmVsLWJ1Y2tldC90dW5uZWwucnZ0"
                 view={this.state.view}
                 headless={false}
                 onViewerError={this.handleViewerError.bind(this)}
