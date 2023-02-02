@@ -33,14 +33,3 @@ $ CREATE EXTENSION postgis;
 -- Empty Data
 $ TRUNCATE "THINGS" RESTART IDENTITY CASCADE;
 ```
-
-## Forge Dataviz
-
-``` shell
-# go to forge folder
-yarn
-yarn run dev
-
-# view the reference application
-http://localhost:9000
-```
