@@ -8,7 +8,8 @@ import ImportDataContainer from './containers/ImportDataContainer';
 import ScatterPlotContainer from './containers/ScatterPlotContainer';
 import Header from './components/Header';
 // import ModelViewerContainer from './containers/ModelViewerContainer';
-import Forge from './components/Forge';
+// import Forge from './components/Forge';
+import APS from './components/APS';
 import Map from './components/Map';
 import SceneViewer from './components/SceneViewer';
 
@@ -20,9 +21,10 @@ function App() {
       <Route path="/import" component={ImportDataContainer} />
       <Route path="/map" component={Map} />
       <Container fluid>
-        <Row>
+        <Row style={{ height: '52vh' }}>
           <Col>
-            <Route path="/" exact component={Forge} />
+            {/* <Route path="/" exact component={Forge} /> */}
+            <Route path="/" exact component={APS} />
           </Col>
           <Col>
             {/* <Route path="/" exact component={ModelViewerContainer} /> */}
