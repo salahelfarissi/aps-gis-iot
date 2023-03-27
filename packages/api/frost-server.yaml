@@ -26,6 +26,7 @@ services:
     environment:
       - POSTGRES_DB=sensorthings
       - POSTGRES_USER=sensorthings
+      # Change PostgreSQL password
       - POSTGRES_PASSWORD=ChangeMe
     ports:
       - "5432:5432"
@@ -38,6 +39,7 @@ services:
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: salaheddine.elfarissi@gmail.com
+      # Change pgadmin password
       PGADMIN_DEFAULT_PASSWORD: ChangeMe
       PGADMIN_LISTEN_PORT: 90
     ports:
