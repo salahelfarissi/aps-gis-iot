@@ -1,11 +1,11 @@
-# Mesium
+# BIM-IoT-3D GIS Platform
 
-A React app for real-time monitoring of railways.
+A React app for real-time monitoring of railroad infrastructure.
 
 ## Technologies used
 
 - [APS](https://aps.autodesk.com/)
-- [Cesium](https://cesium.com/)
+- [ArcGIS Online](https://www.arcgis.com/index.html)
 - [React](https://reactjs.org/)
 - [Docker](https://www.docker.com/)
 
