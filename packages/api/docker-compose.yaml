@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   web:
     image: fraunhoferiosb/frost-server:2.0
@@ -20,32 +21,13 @@ services:
       - database
 
   database:
+    image: postgis/postgis:14-3.2-alpine
     container_name: frost-db-container
-    image: timescale/timescaledb-ha:pg14-latest
-    restart: always
     environment:
       - POSTGRES_DB=sensorthings
       - POSTGRES_USER=sensorthings
-      # Change PostgreSQL password
       - POSTGRES_PASSWORD=ChangeMe
-    ports:
-      - "5432:5432"
     volumes:
       - postgis_volume:/var/lib/postgresql/data
-
-  pgadmin:
-    container_name: pgadmin4_container
-    image: dpage/pgadmin4:5.5
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: salaheddine.elfarissi@gmail.com
-      # Change pgadmin password
-      PGADMIN_DEFAULT_PASSWORD: ChangeMe
-      PGADMIN_LISTEN_PORT: 90
-    ports:
-      - "9090:90"
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
 volumes:
     postgis_volume:
-    pgadmin-data:
