@@ -12,21 +12,11 @@ A React app for real-time monitoring of railroad infrastructure.
 ## FROST-Server
 
 ``` shell
-$ docker-compose -f packages/api/frost-server.yaml up
-
-# Access pgAdmin 4 container http://localhost:9090/
-# Add new server 
-# Host: frost-db-container
-# Username: sensorthings
+# Go to api folder
+$ docker-compose up
 
 # Access postgis container using CLI
 $ docker exec -ti frost-db-container psql -U sensorthings
 ```
 
-``` sql
--- Add PostGIS
-$ CREATE EXTENSION postgis;
-
--- Empty Data
-$ TRUNCATE "THINGS" RESTART IDENTITY CASCADE;
-```
+To access FROST-Server, go to [http://localhost:8080/FROST-Server/](http://localhost:8080/FROST-Server/)
