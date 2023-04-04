@@ -12,7 +12,7 @@ import Header from './components/Header';
 // import APS from './components/APS';
 import Map from './components/Map';
 // import SceneViewer from './components/SceneViewer';
-import ExampleComponent from './components/ExampleComponent';
+import PlotComponent from './components/PlotComponent';
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
         </Row>
         <Row style={{ height: '40vh' }}>
           {/* <Route path="/" exact component={ScatterPlotContainer} /> */}
-          <Route path="/" exact component={ExampleComponent} />
+          <Route path="/" exact component={PlotComponent} />
         </Row>
       </Container>
     </Router>
