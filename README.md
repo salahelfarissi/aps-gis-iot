@@ -1,6 +1,12 @@
 # BIM-IoT-3D GIS Platform
 
+[![node.js](https://img.shields.io/badge/Node.js-16.16-blue.svg)](https://nodejs.org)
+[![React.js](https://img.shields.io/badge/React.js-18.2-blue.svg)](https://react.dev/)
+[![yarn](https://img.shields.io/badge/yarn-1.22-blue.svg)](https://yarnpkg.com/)
+
 A React app for real-time monitoring of railroad infrastructure. It was developed as part of my engineering thesis at School of Geomatics and Surveying Engineering ([Hassan II Institute of Agronomy and Veterinary Medicine](https://www.iav.ac.ma/)).
+
+![Platform](packages/front/src/assets/platform.png)
 
 ## Technologies used
 
