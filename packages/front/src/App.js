@@ -9,9 +9,9 @@ import ImportDataContainer from './containers/ImportDataContainer';
 import Header from './components/Header';
 // import ModelViewerContainer from './containers/ModelViewerContainer';
 // import Forge from './components/Forge';
-// import APS from './components/APS';
+import APS from './components/APS';
 import Map from './components/Map';
-// import SceneViewer from './components/SceneViewer';
+import SceneViewer from './components/SceneViewer';
 import PlotComponent from './components/PlotComponent';
 
 function App() {
@@ -25,11 +25,11 @@ function App() {
         <Row style={{ height: '52vh' }}>
           <Col>
             {/* <Route path="/" exact component={Forge} /> */}
-            {/* <Route path="/" exact component={APS} /> */}
+            <Route path="/" exact component={APS} />
           </Col>
           <Col>
             {/* <Route path="/" exact component={ModelViewerContainer} /> */}
-            {/* <Route path="/" exact component={SceneViewer} /> */}
+            <Route path="/" exact component={SceneViewer} />
           </Col>
         </Row>
         <Row style={{ height: '40vh' }}>
