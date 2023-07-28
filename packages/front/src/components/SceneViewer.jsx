@@ -6,7 +6,7 @@ const SceneViewer = () => {
             width="100%"
             height="100%"
             allowFullScreen
-            src="https://arcg.is/11bL0C0"
+            src="https://arcg.is/Ob40S"
             title="Scene Viewer"
         ></iframe>
     );
