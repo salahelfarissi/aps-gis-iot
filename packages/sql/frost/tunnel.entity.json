@@ -53,33 +53,7 @@
                 "properties": {
                     "category": "Structural"
                 }
-            },
-            "Observations": [
-                {
-                    "phenomenonTime": "2023-03-14T10:00:00Z",
-                    "result": 0.003
-                },
-                {
-                    "phenomenonTime": "2023-03-14T10:01:00Z",
-                    "result": 0.004
-                },
-                {
-                    "phenomenonTime": "2023-03-14T10:02:00Z",
-                    "result": 0.005
-                },
-                {
-                    "phenomenonTime": "2023-03-14T10:03:00Z",
-                    "result": 0.004
-                },
-                {
-                    "phenomenonTime": "2023-03-14T10:04:00Z",
-                    "result": 0.001
-                },
-                {
-                    "phenomenonTime": "2023-03-14T10:05:00Z",
-                    "result": 0.002
-                }
-            ]
+            }
         }
     ]
 }
